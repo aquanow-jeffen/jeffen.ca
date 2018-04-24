@@ -1,0 +1,11 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// $my-theme-primary: mat-palette($mat-deep-purple, 500);
+$my-theme-primary: mat-palette($mat-cyan, 800);
+$my-theme-accent: mat-palette($mat-teal, 100);
+$my-theme-warn: mat-palette($mat-red, 400);
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+// Do not forget to change the variables in ``/theme/variables.scss`` file
+// in order to customize ionic

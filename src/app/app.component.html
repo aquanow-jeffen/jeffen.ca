@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header (openSidenav)="sidenav.open()"></app-header>
+<div id="main">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" [mode]="'push'">
+      <!-- My Profile -->
+      <!-- <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <div class="avatar">
+                <img src="/assets/icon/girl.svg" alt="User">
+              </div>
+              <span>账户管理</span>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <mat-list-item>Item 1</mat-list-item>
+                <mat-list-item>Item 2</mat-list-item>
+                <mat-list-item>Item 3</mat-list-item>
+                <mat-list-item>Item 4</mat-list-item>
+              </mat-nav-list>
+          </mat-expansion-panel>
+          <div class="divider"></div> -->
+      <mat-nav-list>
+        <mat-list-item [routerLink]="['/']" [routerLinkActive]="'active'">
+          <mat-icon>dashboard</mat-icon>
+          <span>Home</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/portfolio']" [routerLinkActive]="'active'">
+          <mat-icon>collections</mat-icon>
+          <span>Portfolio</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/resume']" [routerLinkActive]="'active'">
+          <mat-icon>store</mat-icon>
+          <span>Resume</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/contact']" [routerLinkActive]="'active'">
+          <mat-icon>apps</mat-icon>
+          <span>Contact</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <div class="sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
+</div>

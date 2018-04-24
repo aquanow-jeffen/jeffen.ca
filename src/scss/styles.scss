@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import './custom/_reset';
+
+@import './custom/_theming';
+@include mat-core();
+
+@import './custom/_custom';
+@include angular-material-theme($my-theme);
