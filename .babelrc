@@ -9,6 +9,15 @@
         "ssr": true,
         "displayName": true
       }
+    ],
+    [
+      "transform-imports",
+      {
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        }
+      }
     ]
   ]
 }
