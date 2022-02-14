@@ -81,6 +81,7 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
             background: "var(--colors-gray10)",
             borderRadius: "4px",
           }}
+          layoutId="dock-item-selected"
         ></motion.div>
       )}
     </Box>

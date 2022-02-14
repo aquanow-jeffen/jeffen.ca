@@ -1,0 +1,3 @@
+- [Dock] Bounce when clicking
+- [Dock] small screen responsiveness
+- [Photo] Add Header, add photos

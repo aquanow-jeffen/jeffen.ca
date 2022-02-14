@@ -12,7 +12,7 @@ import ResumeIcon from "./icons/resume.svg";
 import GithubIcon from "./icons/github.svg";
 import EmailIcon from "./icons/email.svg";
 import MoonIcon from "./icons/moon.svg";
-import SunIcon from "./icons/sun.svg";
+import LinkedinIcon from "./icons/linkedin.svg";
 
 import DockItem from "./DockItem";
 
@@ -60,25 +60,32 @@ const menus: Array<Link | DividerItem> = [
     Icon: PhotoIcon,
     centerX: 0,
   },
-  { type: "divider", centerX: 0 },
   {
     type: "link",
     name: "Resume",
-    route: "/photo",
+    route: "/resume",
     Icon: ResumeIcon,
+    centerX: 0,
+  },
+  { type: "divider", centerX: 0 },
+  {
+    type: "link",
+    name: "Linkedin",
+    route: "https://www.linkedin.com/in/jeffenc/",
+    Icon: LinkedinIcon,
     centerX: 0,
   },
   {
     type: "link",
     name: "Github",
-    route: "/photo",
+    route: "https://github.com/Jeffen",
     Icon: GithubIcon,
     centerX: 0,
   },
   {
     type: "link",
     name: "Email",
-    route: "/photo",
+    route: "mailto:chenjeffen@gmail.com",
     Icon: EmailIcon,
     centerX: 0,
   },
@@ -86,7 +93,7 @@ const menus: Array<Link | DividerItem> = [
   {
     type: "link",
     name: "Theme",
-    route: "/photo",
+    route: "/theme",
     Icon: MoonIcon,
     centerX: 0,
   },
