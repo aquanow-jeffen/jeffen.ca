@@ -14,7 +14,7 @@ import {
 const dismissDistance = 150;
 export const PhotoStory = memo(
   ({ id }: any) => {
-    const { title, src } = photos.find((item) => item.id === id);
+    const { title, src } = photos.find((item) => item.id === id) as any;
 
     return (
       <>

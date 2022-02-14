@@ -1,4 +1,4 @@
-export const cardContentContainer = {
+export const cardContentContainer: any = {
   width: "100%",
   height: "auto",
   position: "relative",
@@ -6,7 +6,7 @@ export const cardContentContainer = {
   pointerEvents: "none",
 };
 
-export const openedCardContentContainer = {
+export const openedCardContentContainer: any = {
   top: 0,
   left: 0,
   right: 0,
@@ -25,7 +25,7 @@ export const openedCardContentContainer = {
   },
 };
 
-export const cardContent = {
+export const cardContent: any = {
   pointerEvents: "auto",
   position: "relative",
   borderRadius: 20,

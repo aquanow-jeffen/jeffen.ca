@@ -1,3 +1,7 @@
 - [Dock] Bounce when clicking
 - [Dock] small screen responsiveness
+- [Dock/Photo] Dock doesn't return to small size when previewing photo
+- [Dock] Switch theme
 - [Photo] Add Header, add photos
+- [Photo] Add mobile device interaction for framer
+- [App] Change scrollbar style

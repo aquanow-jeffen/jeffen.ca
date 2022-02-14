@@ -12,7 +12,7 @@ const Photo: NextPage = () => {
 
   return (
     <PageLayout>
-      <AnimateSharedLayout type="crossfade">
+      <AnimateSharedLayout>
         <PhotoList />
         <AnimatePresence>
           {selectedId && <PhotoStory id={selectedId} />}
