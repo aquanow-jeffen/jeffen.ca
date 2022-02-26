@@ -4,100 +4,8 @@ import Divider from "@components/Divider";
 import { motion } from "framer-motion";
 import { debounce, throttle } from "lodash";
 
-import HomeIcon from "./icons/home.svg";
-import WritingIcon from "./icons/writing.svg";
-import ProjectIcon from "./icons/project.svg";
-import PhotoIcon from "./icons/photo.svg";
-import ResumeIcon from "./icons/resume.svg";
-import GithubIcon from "./icons/github.svg";
-import EmailIcon from "./icons/email.svg";
-import MoonIcon from "./icons/moon.svg";
-import LinkedinIcon from "./icons/linkedin.svg";
-
 import DockItem from "./DockItem";
-
-interface Link {
-  type: "link";
-  name: string;
-  route: string;
-  centerX: number;
-  Icon: React.ComponentType;
-  elRef?: Element;
-}
-
-interface DividerItem {
-  type: "divider";
-  centerX: number;
-  elRef?: Element;
-}
-
-const menus: Array<Link | DividerItem> = [
-  {
-    type: "link",
-    name: "Home",
-    route: "/",
-    Icon: HomeIcon,
-    centerX: 0,
-  },
-  {
-    type: "link",
-    name: "Writing",
-    route: "/writing",
-    Icon: WritingIcon,
-    centerX: 0,
-  },
-  {
-    type: "link",
-    name: "Projects",
-    route: "/project",
-    Icon: ProjectIcon,
-    centerX: 0,
-  },
-  {
-    type: "link",
-    name: "Photos",
-    route: "/photo",
-    Icon: PhotoIcon,
-    centerX: 0,
-  },
-  {
-    type: "link",
-    name: "Resume",
-    route: "/resume",
-    Icon: ResumeIcon,
-    centerX: 0,
-  },
-  { type: "divider", centerX: 0 },
-  {
-    type: "link",
-    name: "Linkedin",
-    route: "https://www.linkedin.com/in/jeffenc/",
-    Icon: LinkedinIcon,
-    centerX: 0,
-  },
-  {
-    type: "link",
-    name: "Github",
-    route: "https://github.com/Jeffen",
-    Icon: GithubIcon,
-    centerX: 0,
-  },
-  {
-    type: "link",
-    name: "Email",
-    route: "mailto:chenjeffen@gmail.com",
-    Icon: EmailIcon,
-    centerX: 0,
-  },
-  { type: "divider", centerX: 0 },
-  {
-    type: "link",
-    name: "Theme",
-    route: "/theme",
-    Icon: MoonIcon,
-    centerX: 0,
-  },
-];
+import data from "./menuData";
 
 const MotionComponent = motion(DockItem);
 
@@ -106,9 +14,9 @@ export default function WebsiteDock() {
   const MAX_DISTANCE = 260;
   const INIT_SIZE = 48;
   const MAX_SIZE = 96;
-  const linkRefs = useRef(menus);
+  const linkRefs = useRef(data);
   const [sizes, setSizes] = useState<Array<number>>(
-    Array(menus.length).fill(INIT_SIZE)
+    Array(data.length).fill(INIT_SIZE)
   );
 
   const handleMouseMove = useCallback(
@@ -132,8 +40,8 @@ export default function WebsiteDock() {
 
   const handlePointerOut = useCallback(
     debounce((e) => {
-      if (e.relatedTarget?.tagName === "MAIN") {
-        setSizes(Array(menus.length).fill(INIT_SIZE));
+      if (e.relatedTarget?.tagName) {
+        setSizes(Array(data.length).fill(INIT_SIZE));
       }
     }, 1000 / FRAME_RATE),
     []
@@ -162,7 +70,7 @@ export default function WebsiteDock() {
   return (
     <Box
       component="footer"
-      onPointerOut={handlePointerOut}
+      onPointerLeave={handlePointerOut}
       onMouseMove={handleMouseMove}
       sx={{
         display: "flex",

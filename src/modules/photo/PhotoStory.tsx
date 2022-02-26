@@ -45,10 +45,8 @@ export const PhotoStory = memo(
               className="content-container"
               animate
               style={{
-                minHeight: 150,
                 padding: "30px 35px 35px 35px",
                 maxWidth: 700,
-                // width: "90vw",
               }}
             >
               {title}

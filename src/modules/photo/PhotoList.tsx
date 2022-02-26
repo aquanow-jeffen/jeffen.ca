@@ -43,6 +43,7 @@ export const PhotoList = memo(() => {
         gridTemplateColumns: "repeat(2, 1fr)",
         gap: "10px",
         gridAutoRows: "minmax(100px, auto)",
+        p: 0,
       }}
     >
       {photos.map((card) => (

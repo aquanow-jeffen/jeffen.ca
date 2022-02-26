@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
   const router = useRouter();
   const [isHover, setIsHover] = useState(false);
+  const isCurrentRoute =
+    item.route === "/"
+      ? router.pathname === item.route
+      : router.pathname.startsWith(item.route);
 
   const handleRouteChange = () => {
     router.push(item.route);
@@ -71,7 +75,7 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
           transformOrigin: "unset !important",
         }}
       />
-      {router.pathname === item.route && (
+      {isCurrentRoute && (
         <motion.div
           style={{
             position: "absolute",
