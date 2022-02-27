@@ -15,67 +15,67 @@ import meteor_shower from "../../../public/photos/meteor_shower.jpg";
 export const photos = [
   {
     id: "1",
-    title: "The Great Wall of China 1",
+    title: "Furry Creek",
     src: star1,
   },
   {
     id: "2",
-    title: "The Great Wall of China 2 ",
+    title: "Furry Creek",
     src: star2,
   },
   {
     id: "3",
-    title: "The Great Wall of China 3",
+    title: "Furry Creek",
     src: star3,
   },
   {
     id: "13",
-    title: "The Great Wall of China 3",
+    title: "Tantalus Lookout",
     src: meteor_shower,
   },
   {
     id: "5",
-    title: "The Great Wall of China 3",
+    title: "Garibaldi Lake",
     src: garibaldi1,
   },
   {
     id: "4",
-    title: "The Great Wall of China 3",
+    title: "Home",
     src: sky,
   },
   {
     id: "6",
-    title: "The Great Wall of China 3",
+    title: "Garibaldi Lake",
     src: garibaldi2,
   },
   {
     id: "8",
-    title: "The Great Wall of China 3",
+    title: "Devonian Harbour Park",
     src: stanley_park,
   },
   {
     id: "9",
-    title: "The Great Wall of China 3",
+    title: "Tunnel Bluff",
     src: tunnel_bluff1,
   },
   {
     id: "10",
-    title: "The Great Wall of China 3",
+    title: "Tunnel Bluff",
     src: tunnel_bluff2,
   },
   {
     id: "11",
-    title: "The Great Wall of China 3",
+    title: "Tunnel Bluff",
     src: tunnel_bluff3,
   },
   {
     id: "12",
-    title: "The Great Wall of China 3",
+    title: "Mount Harvey",
     src: mount_harvey,
   },
   {
     id: "7",
-    title: "The Great Wall of China 3",
+    title: "Panorama Ridge",
     src: garibaldi3,
     css: {
       gridColumn: "1 / -1",

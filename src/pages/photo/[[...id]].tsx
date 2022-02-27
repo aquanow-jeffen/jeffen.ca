@@ -12,7 +12,7 @@ const Photo: NextPage = () => {
   const selectedId = id[0];
 
   return (
-    <PageLayout>
+    <PageLayout title="Photos">
       <Box
         sx={{
           borderBottom: "2px solid #373737",

@@ -52,7 +52,9 @@ export default function WebsiteDock() {
       entries.forEach((entry, i) => {
         const bounds = entry.boundingClientRect;
         const centerX = bounds.x + bounds.width / 2;
-        linkRefs.current[i].centerX = centerX;
+        if (linkRefs.current[i]) {
+          linkRefs.current[i].centerX = centerX;
+        }
       });
     });
 
@@ -71,55 +73,73 @@ export default function WebsiteDock() {
     <Box
       component="footer"
       onPointerLeave={handlePointerOut}
-      onMouseMove={handleMouseMove}
+      onPointerMove={handleMouseMove}
       sx={{
         display: "flex",
         alignItems: "flex-end",
-        width: "auto",
-        height: "70px",
-        paddingLeft: "10px",
-        paddingRight: "10px",
         position: "fixed",
-        bottom: "40px",
-        background: "rgba(22, 22, 22, 0.85)",
-        boxShadow: "0 30px 60px rgba(0, 0, 0, 0.12)",
-        backdropFilter: "blur(25px)",
-        border: "1px solid hsl(0 0% 15.8%)",
+        bottom: "18px",
         left: "50%",
-        borderRadius: "20px",
         zIndex: "10",
-        transform: "translate(-50%, -50%) translateY(64px)",
+        transform: "translateX(-50%)",
+        overflowX: "auto",
+        paddingTop: "25px",
+        maxWidth: "calc(100vw - 20px)",
       }}
     >
       <Box
         className="dock"
         sx={{
-          display: "flex",
-          alignItems: "flex-end",
-          gap: "8px",
-          width: "100%",
           pt: "10px",
           pb: "10px",
+          width: "100%",
+          position: "relative",
         }}
       >
-        {linkRefs.current.map((item, index) =>
-          item.type === "link" ? (
-            <MotionComponent
-              ref={(el: HTMLElement) => (linkRefs.current[index].elRef = el)}
-              item={item}
-              key={item.name}
-              animate={{
-                height: sizes[index],
-                width: sizes[index],
-              }}
-            />
-          ) : (
-            <Divider
-              key={`divider-${index}`}
-              ref={(el: HTMLElement) => (linkRefs.current[index].elRef = el)}
-            />
-          )
-        )}
+        <Box
+          sx={{
+            position: "relative",
+            display: "flex",
+            alignItems: "flex-end",
+            gap: "8px",
+            px: "11px",
+            zIndex: 2,
+          }}
+        >
+          {linkRefs.current.map((item, index) =>
+            item.type === "link" ? (
+              <MotionComponent
+                ref={(el: HTMLElement) => (linkRefs.current[index].elRef = el)}
+                item={item}
+                key={item.name}
+                animate={{
+                  height: sizes[index],
+                  width: sizes[index],
+                }}
+              />
+            ) : (
+              <Divider
+                key={`divider-${index}`}
+                ref={(el: HTMLElement) => (linkRefs.current[index].elRef = el)}
+              />
+            )
+          )}
+        </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            transform: "none",
+            background: "rgba(22, 22, 22, 0.85)",
+            boxShadow: "0 30px 60px rgba(0, 0, 0, 0.12)",
+            border: "1px solid hsl(0 0% 15.8%)",
+            zIndex: 1,
+            height: 70,
+            borderRadius: "20px",
+          }}
+        ></Box>
       </Box>
     </Box>
   );

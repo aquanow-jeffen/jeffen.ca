@@ -34,4 +34,5 @@ export const cardContent: any = {
   width: "100%",
   height: "100%",
   margin: "0 auto",
+  maxHeight: "calc(100vh - 130px)",
 };

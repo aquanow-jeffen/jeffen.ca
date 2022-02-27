@@ -5,6 +5,7 @@ import { photos } from "./data";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Box } from "@mui/system";
+import LocationIcon from "./location.svg";
 import {
   cardContent,
   cardContentContainer,
@@ -34,22 +35,22 @@ export const PhotoStory = memo(
               className="card-image-container"
               layoutId={`card-image-container-${id}`}
             >
-              <Image
-                className="card-image"
-                src={src}
-                alt={title}
-                layout="responsive"
-              />
+              <Image className="card-image" src={src} alt={title} />
             </motion.div>
             <motion.div
               className="content-container"
               animate
               style={{
-                padding: "30px 35px 35px 35px",
+                padding: "12px 17px 17px",
                 maxWidth: 700,
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                fontWeight: 500,
               }}
             >
-              {title}
+              <LocationIcon style={{ width: "18px", height: "18px" }} />
+              <span>{title}</span>
             </motion.div>
           </motion.div>
         </Box>

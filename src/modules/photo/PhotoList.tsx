@@ -44,6 +44,7 @@ export const PhotoList = memo(() => {
         gap: "10px",
         gridAutoRows: "minmax(100px, auto)",
         p: 0,
+        bottom: 77,
       }}
     >
       {photos.map((card) => (

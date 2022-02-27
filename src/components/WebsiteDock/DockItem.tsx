@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Box } from "@mui/system";
+import React from "react";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
   const router = useRouter();
-  const [isHover, setIsHover] = useState(false);
+  const tooltipControl = useAnimation();
+  const iconControl = useAnimation();
   const isCurrentRoute =
     item.route === "/"
       ? router.pathname === item.route
@@ -13,21 +13,33 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
 
   const handleRouteChange = () => {
     router.push(item.route);
+    iconControl.start({
+      y: ["0rem", "-3rem", "0rem"],
+      transition: { duration: 0.5 },
+    });
   };
 
-  const handleHover = (e) => {
-    setIsHover(e);
+  const handleHover = (isHover) => {
+    tooltipControl.start({
+      opacity: isHover ? 1 : 0,
+      y: isHover ? -65 : -55,
+      transition: {
+        delay: isHover ? 0.3 : 0,
+        duration: 0.3,
+      },
+    });
   };
 
   const Icon = item.Icon;
 
   return (
-    <Box
+    <motion.div
       ref={ref}
       onClick={handleRouteChange}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
-      sx={{
+      animate={iconControl}
+      style={{
         transform: "none",
         cursor: "pointer",
         flexShrink: "0",
@@ -56,14 +68,7 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
           background: "var(--colors-gray1)",
           opacity: 0,
         }}
-        transition={{
-          delay: isHover ? 0.3 : 0,
-          duration: 0.3,
-        }}
-        animate={{
-          opacity: isHover ? 1 : 0,
-          y: isHover ? -65 : -55,
-        }}
+        animate={tooltipControl}
       >
         {item.name}
       </motion.div>
@@ -85,9 +90,12 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
             background: "var(--colors-gray10)",
             borderRadius: "4px",
           }}
+          transition={{
+            duration: 0.5,
+          }}
           layoutId="dock-item-selected"
         ></motion.div>
       )}
-    </Box>
+    </motion.div>
   );
 });
