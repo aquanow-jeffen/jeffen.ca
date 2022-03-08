@@ -12,7 +12,11 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
       : router.pathname.startsWith(item.route);
 
   const handleRouteChange = () => {
-    router.push(item.route);
+    if (typeof item.route === "string") {
+      router.push(item.route);
+    } else if (typeof item.onClick === "function") {
+      item.onClick();
+    }
     iconControl.start({
       y: ["0rem", "-3rem", "0rem"],
       transition: { duration: 0.5 },
@@ -23,10 +27,6 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
     tooltipControl.start({
       opacity: isHover ? 1 : 0,
       y: isHover ? -65 : -55,
-      transition: {
-        delay: isHover ? 0.3 : 0,
-        duration: 0.3,
-      },
     });
   };
 
@@ -91,7 +91,7 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
             borderRadius: "4px",
           }}
           transition={{
-            duration: 0.5,
+            duration: 0.3,
           }}
           layoutId="dock-item-selected"
         ></motion.div>

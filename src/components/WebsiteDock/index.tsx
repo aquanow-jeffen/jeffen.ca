@@ -82,15 +82,12 @@ export default function WebsiteDock() {
         left: "50%",
         zIndex: "10",
         transform: "translateX(-50%)",
-        overflowX: "auto",
-        paddingTop: "25px",
         maxWidth: "calc(100vw - 20px)",
       }}
     >
       <Box
         className="dock"
         sx={{
-          pt: "10px",
           pb: "10px",
           width: "100%",
           position: "relative",
@@ -132,9 +129,9 @@ export default function WebsiteDock() {
             right: 0,
             bottom: 0,
             transform: "none",
-            background: "rgba(22, 22, 22, 0.85)",
+            background: "var(--colors-dock-bg)",
             boxShadow: "0 30px 60px rgba(0, 0, 0, 0.12)",
-            border: "1px solid hsl(0 0% 15.8%)",
+            border: "1px solid var(--colors-gray4)",
             zIndex: 1,
             height: 70,
             borderRadius: "20px",

@@ -40,7 +40,10 @@ export const PhotoList = memo(() => {
       component="ul"
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: {
+          xs: "1fr",
+          sm: "repeat(2, 1fr)",
+        },
         gap: "10px",
         gridAutoRows: "minmax(100px, auto)",
         p: 0,

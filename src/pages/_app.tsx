@@ -49,7 +49,7 @@ function MyApp({
     } else {
       document.documentElement.classList.remove("dark");
     }
-  });
+  }, []);
   return (
     <>
       <Head>
