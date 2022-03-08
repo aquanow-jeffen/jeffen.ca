@@ -46,7 +46,7 @@ body {
 }
 
 a {
-  color: white;
+  color: var(--colors-gray12);
   text-decoration: none;
 }
 
