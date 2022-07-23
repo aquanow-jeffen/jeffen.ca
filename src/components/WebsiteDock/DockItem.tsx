@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { motion, useAnimation } from "framer-motion";
+import { ThemeContext } from "src/themeContext";
 
 export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
   const router = useRouter();
   const tooltipControl = useAnimation();
   const iconControl = useAnimation();
+  const [theme, setTheme] = useContext(ThemeContext);
   const isCurrentRoute =
     item.route === "/"
       ? router.pathname === item.route
       : router.pathname.startsWith(item.route);
 
-  const handleRouteChange = () => {
+  const handleClick = () => {
     if (typeof item.route === "string") {
       router.push(item.route);
-    } else if (typeof item.onClick === "function") {
-      item.onClick();
+    } else if (item.name === "Theme") {
+      const newTheme = document.documentElement.className.includes("dark")
+        ? "light"
+        : "dark";
+      document.documentElement.className = newTheme;
+      setTheme(newTheme);
     }
     iconControl.start({
       y: ["0rem", "-3rem", "0rem"],
@@ -30,12 +36,13 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
     });
   };
 
-  const Icon = item.Icon;
+  const Icon = React.memo(item.Icon);
 
   return (
-    <motion.div
+    <motion.button
+      type="button"
       ref={ref}
-      onClick={handleRouteChange}
+      onClick={handleClick}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
       animate={iconControl}
@@ -73,6 +80,7 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
         {item.name}
       </motion.div>
       <Icon
+        theme={theme}
         style={{
           position: "absolute",
           inset: "22%",
@@ -82,13 +90,14 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
       />
       {isCurrentRoute && (
         <motion.div
+          layout
           style={{
             position: "absolute",
             bottom: "-7px",
             width: "4px",
             height: "4px",
             background: "var(--colors-gray10)",
-            borderRadius: "4px",
+            borderRadius: "100%",
           }}
           transition={{
             duration: 0.3,
@@ -96,6 +105,6 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
           layoutId="dock-item-selected"
         ></motion.div>
       )}
-    </motion.div>
+    </motion.button>
   );
 });

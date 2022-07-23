@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box } from "@mui/system";
 import Divider from "@components/Divider";
 import { motion } from "framer-motion";
-import { debounce, throttle } from "lodash";
+import { useDebounce, useThrottle } from "rooks";
 
 import DockItem from "./DockItem";
 import data from "./menuData";
@@ -18,34 +18,25 @@ export default function WebsiteDock() {
   const [sizes, setSizes] = useState<Array<number>>(
     Array(data.length).fill(INIT_SIZE)
   );
+  const setSizeDebounced = useDebounce(setSizes, 1000 / FRAME_RATE);
 
-  const handleMouseMove = useCallback(
-    throttle(
-      (e) => {
-        const newSizes = linkRefs.current.map((item) => {
-          if (!item.elRef) return INIT_SIZE;
-          const distance = Math.min(
-            Math.abs(e.clientX - item.centerX),
-            MAX_DISTANCE
-          );
-          return MAX_SIZE - ((MAX_SIZE - INIT_SIZE) / MAX_DISTANCE) * distance;
-        });
-        setSizes(newSizes);
-      },
-      1000 / FRAME_RATE,
-      { leading: true }
-    ),
-    []
-  );
+  const [handleMouseMove] = useThrottle((e) => {
+    const newSizes = linkRefs.current.map((item) => {
+      if (!item.elRef) return INIT_SIZE;
+      const distance = Math.min(
+        Math.abs(e.clientX - item.centerX),
+        MAX_DISTANCE
+      );
+      return MAX_SIZE - ((MAX_SIZE - INIT_SIZE) / MAX_DISTANCE) * distance;
+    });
+    setSizes(newSizes);
+  }, 1000 / FRAME_RATE);
 
-  const handlePointerOut = useCallback(
-    debounce((e) => {
-      if (e.relatedTarget?.tagName) {
-        setSizes(Array(data.length).fill(INIT_SIZE));
-      }
-    }, 1000 / FRAME_RATE),
-    []
-  );
+  const handlePointerOut = (e) => {
+    if (e.relatedTarget?.tagName) {
+      setSizeDebounced(Array(data.length).fill(INIT_SIZE));
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -113,6 +104,7 @@ export default function WebsiteDock() {
                   height: sizes[index],
                   width: sizes[index],
                 }}
+                transition={{ duration: 0.2 }}
               />
             ) : (
               <Divider

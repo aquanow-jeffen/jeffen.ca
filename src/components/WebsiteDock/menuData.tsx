@@ -6,6 +6,7 @@ import ResumeIcon from "./icons/resume.svg";
 import GithubIcon from "./icons/github.svg";
 import EmailIcon from "./icons/email.svg";
 import MoonIcon from "./icons/moon.svg";
+import SunIcon from "./icons/sun.svg";
 import LinkedinIcon from "./icons/linkedin.svg";
 
 interface Link {
@@ -13,7 +14,7 @@ interface Link {
   name: string;
   route?: string;
   centerX: number;
-  Icon: React.ComponentType;
+  Icon: React.ComponentType | React.ReactElement;
   elRef?: Element;
   onClick?: () => void;
 }
@@ -53,13 +54,13 @@ const menuData: Array<Link | DividerItem> = [
     Icon: PhotoIcon,
     centerX: 0,
   },
-  // {
-  //   type: "link",
-  //   name: "Resume",
-  //   route: "/resume",
-  //   Icon: ResumeIcon,
-  //   centerX: 0,
-  // },
+  {
+    type: "link",
+    name: "Resume",
+    route: "/resume",
+    Icon: ResumeIcon,
+    centerX: 0,
+  },
   { type: "divider", centerX: 0 },
   {
     type: "link",
@@ -86,14 +87,13 @@ const menuData: Array<Link | DividerItem> = [
   {
     type: "link",
     name: "Theme",
-    Icon: MoonIcon,
+    Icon: (props) =>
+      (props as any).theme === "dark" ? (
+        <MoonIcon {...props} />
+      ) : (
+        <SunIcon {...props} />
+      ),
     centerX: 0,
-    onClick: () => {
-      const newTheme = document.documentElement.className.includes("dark")
-        ? "light"
-        : "dark";
-      document.documentElement.className = newTheme;
-    },
   },
 ];
 
