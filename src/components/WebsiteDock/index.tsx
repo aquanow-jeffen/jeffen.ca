@@ -6,7 +6,7 @@ import { useDebounce, useThrottle } from "rooks";
 
 import DockItem from "./DockItem";
 import data from "./menuData";
-import { isTouchDevice } from "@lib/touch";
+import { useIsTouch } from "@components/useIsTouch";
 
 const MotionComponent = motion(DockItem);
 
@@ -16,19 +16,15 @@ export default function WebsiteDock() {
   const INIT_SIZE = 48;
   const MAX_SIZE = 96;
   const linkRefs = useRef(data);
-  const [isTouch, setIsTouch] = useState(false);
+  const isTouch = useIsTouch();
   const [sizes, setSizes] = useState<Array<number>>(
     Array(data.length).fill(INIT_SIZE)
   );
 
-  useEffect(() => {
-    setIsTouch(isTouchDevice());
-  }, []);
-
   const setSizeDebounced = useDebounce(setSizes, 1000 / FRAME_RATE);
 
   const [handleMouseMove] = useThrottle((e) => {
-    if (isTouchDevice()) return;
+    if (isTouch) return;
     const newSizes = linkRefs.current.map((item) => {
       if (!item.elRef) return INIT_SIZE;
       const distance = Math.min(
