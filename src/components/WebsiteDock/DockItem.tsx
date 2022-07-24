@@ -83,8 +83,8 @@ export default React.forwardRef<any, any>(function DockItem({ item }, ref) {
         theme={theme}
         style={{
           position: "absolute",
-          inset: "22%",
           pointerEvents: "none",
+          transform: "scale(0.7)",
           transformOrigin: "unset !important",
         }}
       />

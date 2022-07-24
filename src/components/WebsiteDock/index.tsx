@@ -11,7 +11,7 @@ import { isTouchDevice } from "@lib/touch";
 const MotionComponent = motion(DockItem);
 
 export default function WebsiteDock() {
-  const FRAME_RATE = 30;
+  const FRAME_RATE = 60;
   const MAX_DISTANCE = 260;
   const INIT_SIZE = 48;
   const MAX_SIZE = 96;
