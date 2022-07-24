@@ -38,6 +38,7 @@ export default function PageLayout({ children, title }: Props): JSX.Element {
           paddingTop: "120px",
           paddingBottom: "120px",
           margin: "0px auto",
+          padding: "var(--space-3)",
         }}
       >
         {children}

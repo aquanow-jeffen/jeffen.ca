@@ -6,6 +6,7 @@ import { useDebounce, useThrottle } from "rooks";
 
 import DockItem from "./DockItem";
 import data from "./menuData";
+import { isTouchDevice } from "@lib/touch";
 
 const MotionComponent = motion(DockItem);
 
@@ -15,12 +16,19 @@ export default function WebsiteDock() {
   const INIT_SIZE = 48;
   const MAX_SIZE = 96;
   const linkRefs = useRef(data);
+  const [isTouch, setIsTouch] = useState(false);
   const [sizes, setSizes] = useState<Array<number>>(
     Array(data.length).fill(INIT_SIZE)
   );
+
+  useEffect(() => {
+    setIsTouch(isTouchDevice());
+  }, []);
+
   const setSizeDebounced = useDebounce(setSizes, 1000 / FRAME_RATE);
 
   const [handleMouseMove] = useThrottle((e) => {
+    if (isTouchDevice()) return;
     const newSizes = linkRefs.current.map((item) => {
       if (!item.elRef) return INIT_SIZE;
       const distance = Math.min(
@@ -63,8 +71,8 @@ export default function WebsiteDock() {
   return (
     <Box
       component="footer"
-      onPointerLeave={handlePointerOut}
-      onPointerMove={handleMouseMove}
+      onMouseLeave={handlePointerOut}
+      onMouseMove={handleMouseMove}
       sx={{
         display: "flex",
         alignItems: "flex-end",
@@ -79,9 +87,11 @@ export default function WebsiteDock() {
       <Box
         className="dock"
         sx={{
-          pb: "10px",
+          p: "0 10px 4px 10px",
           width: "100%",
           position: "relative",
+          height: isTouch ? 196 : "auto",
+          display: "flex",
         }}
       >
         <Box
@@ -89,8 +99,11 @@ export default function WebsiteDock() {
             position: "relative",
             display: "flex",
             alignItems: "flex-end",
+            overflowX: isTouch ? "auto" : "unset",
+            overflowY: isTouch ? "hidden" : "unset",
             gap: "8px",
             px: "11px",
+            pb: "7px",
             zIndex: 2,
           }}
         >
