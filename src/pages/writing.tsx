@@ -7,6 +7,7 @@ const Writing: NextPage = () => {
     <PageLayout title="Writing">
       <Box>
         <h1>Writings</h1>
+        🚧 Under construction
       </Box>
     </PageLayout>
   );
