@@ -18,12 +18,16 @@ export const resumeData = [
             structure.
           </div>
           <div>
-            • Transform CRA/ANTD/Redux based SPA to NextJS/MUI/Redux-toolkit
-            with uniformed structure
+            • Transform CRA/ANTD/Redux based SPA to
+            NextJS/MUI/Redux-toolkit/Websocket with uniformed structure
           </div>
           <div>
             • Full stack typescript development, testing, performance and
             monitoring
+          </div>
+          <div>
+            • Design event sourcing systems including payment processing,
+            reporting, notification etc.
           </div>
           <div>
             • Conduct Scrum ceremonies(Agile), manage full product development
