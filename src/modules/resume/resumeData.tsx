@@ -13,28 +13,29 @@ export const resumeData = [
         </div>
         <details>
           <div>
-            • Transform AWS Lambda Javascript codebase to typescript codebase
-            with Linting, Code Coverage, Webpack and CI/CD pipeline enforced
-            structure.
+            • Design, lead and document the transformation of AWS Lambda
+            Javascript codebase to typescript codebase with Linting, Code
+            Coverage, Webpack and CI/CD pipeline enforced structure.
           </div>
           <div>
-            • Transform CRA/ANTD/Redux based SPA to
-            NextJS/MUI/Redux-toolkit/Websocket with uniformed structure
+            • Design, lead and document the transformation of CRA/ANTD/Redux
+            based SPA to NextJS/MUI/Redux-toolkit/Websocket.
           </div>
           <div>
-            • Full stack typescript development, testing, performance and
-            monitoring
-          </div>
-          <div>
-            • Design event sourcing systems including payment processing,
-            reporting, notification etc.
+            • Design, implement and document event sourcing systems for payment
+            processing, aggregation, reporting, monitoring and notification on
+            AWS(Cognito, Lambda, DynamoDB, SQS, EventBridge, SNS, Cloudwatch,
+            AppSync, AppConfig etc.)
           </div>
           <div>
             • Conduct Scrum ceremonies(Agile), manage full product development
             cycle from planning to documentation and deliver features based on
             roadmap.
           </div>
-          <div>• Provide client meeting, onboarding and technical support</div>
+          <div>
+            • Onboarding client, communicate requirements and provide technical
+            support
+          </div>
         </details>
       </>
     ),
