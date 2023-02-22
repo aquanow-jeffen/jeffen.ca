@@ -2,39 +2,45 @@ export const resumeData = [
   {
     name: "Aquanow",
     time: "Jun 2021 - Present",
-    title: "Full-Stack Engineer, Technical Product Owner",
+    title: "Staff Software Engineer, Technical Product Owner",
     keywords: "",
+    tech: ["NodeJs", "ReactJs", "Terraform", "Lambda", "AWS", "Golang"],
     description: (
       <>
         <div>
-          Closely work with CTO on AWS Full-stack application design, dev
-          process and tool standardization across-team. Manage one of Aquanow
-          product lines.
+          Collaborated closely with the CTO to design systems on AWS full-stack
+          applications, develop automation and tools across teams while managing
+          one of Aquanow&apos;s product lines.
         </div>
         <details>
           <div>
-            • Design, lead and document the transformation of AWS Lambda
-            Javascript codebase to typescript codebase with Linting, Code
-            Coverage, Webpack and CI/CD pipeline enforced structure.
+            • Led the design and implementation of the transformation of the AWS
+            Lambda JavaScript codebase to a TypeScript codebase with enforced
+            structure through Linting, Code Coverage, Webpack, and CI/CD
+            pipeline.
           </div>
           <div>
-            • Design, lead and document the transformation of CRA/ANTD/Redux
-            based SPA to NextJS/MUI/Redux-toolkit/Websocket.
+            • Led the design and implementation of the transformation of the SPA
+            based on CRA/ANTD/Redux to NextJS/MUI/Redux-toolkit/Websocket.
           </div>
           <div>
-            • Design, implement and document event sourcing systems for payment
-            processing, aggregation, reporting, monitoring and notification on
-            AWS(Cognito, Lambda, DynamoDB, SQS, EventBridge, SNS, Cloudwatch,
-            AppSync, AppConfig etc.)
+            • Designed, implemented and maintained an event sourcing system for
+            payment processing, aggregation, reporting, monitoring, and
+            notification on AWS (Cognito, Lambda, DynamoDB, SQS, EventBridge,
+            SNS, Cloudwatch, AppSync, AppConfig, etc.).
           </div>
           <div>
-            • Conduct Scrum ceremonies(Agile), manage full product development
-            cycle from planning to documentation and deliver features based on
-            roadmap.
+            • Designed and implemented ETL data pipelines for BI on AWS Glue,
+            S3, and AWS Athena.
           </div>
           <div>
-            • Onboarding client, communicate requirements and provide technical
-            support
+            • Conducted Scrum ceremonies (Agile), managed the full product
+            development cycle from planning to documentation, and delivered
+            features based on the roadmap.
+          </div>
+          <div>
+            • Onboarded clients, communicated requirements, and provided
+            technical support.
           </div>
         </details>
       </>
@@ -44,46 +50,48 @@ export const resumeData = [
     name: "Central 1 Credit Union",
     time: "Jun 2019 - May 2021",
     title: "Web Developer 3",
+    tech: ["Angular", "ReactJS", "NodeJS", "Docker", "Java"],
     description: (
       <>
         <div>
-          Maintain a requireJS based micro-FE component library and framework.
-          Focused on robustness and a11y. Developed several internal developer
-          tools/websites to improve cross-team productivity.
+          Maintained a micro-FE component library and framework based on
+          requireJS, with a focus on robustness and accessibility. Developed
+          several internal developer tools and websites to improve cross-team
+          productivity.
         </div>
         <details>
           <div>
-            • Build, maintain and improve performance on enterprise UI-component
-            library(micro-FE) for client using Typescript, AngularJS, Vanilla
-            JS, Sass, webpack.
+            • Built, maintained, and improved the performance of an enterprise
+            UI-component library (micro-FE) for a client using Typescript,
+            AngularJS, Vanilla JS, Sass, and webpack.
           </div>
           <div>
-            • Research, maintaining and provide insights on 3rd-party
-            Platform(Backbase.com) source code built with Javascript
+            • Researched, maintained, and provided insights on third-party
+            platform (Backbase.com) source code built with JavaScript.
           </div>
-          <div>• Write unit testing using Karma, Jasmine</div>
+          <div>• Wrote unit tests using Karma and Jasmine.</div>
           <div>
-            • Develop and automate Visual testing and E2E testing using
-            backstopJS & Cypress. Visualize testing report and integrate with
-            CI/CD pipeline.
-          </div>
-          <div>
-            • Design, develop and deliver a browser extension to help visualize
-            and manage micro-frontend components on a production page. Implement
-            request interceptor, communication and 3rd-party integration(Jira,
-            deployment information).
+            • Developed and automated visual testing and E2E testing using
+            backstopJS and Cypress, visualized testing reports, and integrated
+            them with the CI/CD pipeline.
           </div>
           <div>
-            • Design, maintain and improve performance on SCSS theming system
-            for 70+ clients.
+            • Designed, developed, and delivered a browser extension to help
+            visualize and manage micro-frontend components on a production page,
+            implementing request interceptor, communication, and third-party
+            integration (Jira, deployment information).
           </div>
           <div>
-            • Build and maintain nodeJS CLI tools(yeoman generator, theme CI/CD
-            builder)
+            • Designed, maintained, and improved the performance of the SCSS
+            theming system for 70+ clients.
           </div>
           <div>
-            • Follow Agile development practice using Jira, Kanban & BitBucket
-            to manage software development cycle
+            • Built and maintained nodeJS CLI tools such as the Yeoman generator
+            and theme CI/CD builder.
+          </div>
+          <div>
+            • Followed Agile development practices using Jira, Kanban, and
+            BitBucket to manage the software development cycle.
           </div>
         </details>
       </>
@@ -94,6 +102,7 @@ export const resumeData = [
     time: "Aug 2017 - May 2019",
     title: "Senior Frontend Developer",
     keywords: "",
+    tech: ["Angular", "Ionic", "ReactJS", "Nginx", "Docker", "NodeJS"],
     description: (
       <div>
         <div>
@@ -143,6 +152,7 @@ export const resumeData = [
     time: "May 2016 - Aug 2017",
     title: "Javascript developer",
     keywords: "",
+    tech: ["Angular", "ExpressJS", "MongoDB", "Nginx", "Google Map API"],
     description: (
       <div>
         Sole developer on a House rental website of location based searching,

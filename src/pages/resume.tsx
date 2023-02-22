@@ -101,6 +101,16 @@ const Resume: NextPage = () => {
               </Box>
               <div className="title">{item.title}</div>
               <Box
+                className="tech"
+                sx={{
+                  fontSize: "13px",
+                  marginTop: "-6px",
+                  color: "var(--colors-gray12)",
+                }}
+              >
+                {item.tech?.join(", ")}
+              </Box>
+              <Box
                 sx={{
                   margin: "1em 0.75em 0 0",
                   fontSize: "14px",
