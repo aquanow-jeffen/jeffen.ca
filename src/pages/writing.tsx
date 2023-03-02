@@ -15,6 +15,12 @@ const writingData = [
       "An opinionated guide on how to organize a serverless application",
     url: "https://blog.jeffen.me/nodejs-lambda-best-practices-with-serverless-framework-c0c185960353",
   },
+  {
+    title: "Best Coding Practice for AWS Lambda with NodeJS",
+    subtitle:
+      "Focus on coding practices to ensure maintainability and scalability",
+    url: "https://medium.com/@jeffen.me/best-coding-practice-for-aws-lambda-with-nodejs-90da4176f932",
+  },
 ];
 
 const Writing: NextPage = () => {
