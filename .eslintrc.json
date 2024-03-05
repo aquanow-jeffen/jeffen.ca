@@ -9,8 +9,7 @@
     "prettier"
   ],
   "plugins": [
-    "@typescript-eslint",
-    "prettier"
+    "@typescript-eslint"
   ],
   "env": {
     "node": true,
