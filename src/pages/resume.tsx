@@ -6,12 +6,12 @@ import { Badge, Box, Button, Flex, Section, Separator, Text } from '@radix-ui/th
 const Resume: NextPage = () => {
   return (
     <PageLayout title="Resume">
-      <Section className="print:pt-0">
-        <Flex gap='3' className="-mt-12 float-right print:hidden">
+      <Section className="print:pt-0 pt-10 md:pt-inherit">
+        <Flex gap='3' className="-mt-12 mb-4 md:mb-0 md:float-right print:hidden">
           <Button variant='outline' radius="full" highContrast onClick={() => window.print()}>Download CV</Button>
           <Button variant='outline' radius="full" highContrast onClick={() => window.location.href = "mailto:chenjeffen@gmail.com"}>Get in touch</Button>
         </Flex>
-        <Box className="print:block mb-4">
+        <Box className="hidden print:block mb-4">
           <Text as="div" size="6" weight="bold">
             Jeffen Chen
           </Text>
@@ -48,7 +48,7 @@ const Resume: NextPage = () => {
                 <span className="time">{item.time}</span>
               </Text>
             </Box>
-            <Flex>
+            <Flex className="overflow-x-auto">
               {item.tech?.map((tech) => (
                 <Badge key={tech} variant="outline" color="gray" highContrast className="mr-2">
                   {tech}

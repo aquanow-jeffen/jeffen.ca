@@ -11,23 +11,7 @@ import SiteDock from '@components/Dock/Dock';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const url = `https://jeffen.me${router.route}`;
-  const [loading, setLoading] = useState(false);
-  const [theme, setTheme] = useState('light' as any);
-
-  useEffect(() => {
-    const handleRouteChange = () => setLoading(true);
-    const handleRouteComplete = () => setLoading(false);
-    const handleRouteError = () => setLoading(false);
-
-    router.events.on('routeChangeStart', handleRouteChange);
-    router.events.on('routeChangeComplete', handleRouteComplete);
-    router.events.on('routeChangeError', handleRouteError);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
-      router.events.off('routeChangeComplete', handleRouteComplete);
-      router.events.off('routeChangeError', handleRouteError);
-    };
-  }, []);
+  const [theme, setTheme] = useState('light' as any)
 
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC

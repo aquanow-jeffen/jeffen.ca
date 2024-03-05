@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Box, Container, Section } from '@radix-ui/themes';
+import { Container, Section } from '@radix-ui/themes';
 
 type Props = {
   children: ReactNode;
@@ -16,17 +16,17 @@ const variants = {
 
 export default function PageLayout({ children, title }: Props): JSX.Element {
   return (
-    <Box>
+    <>
       <Head>
         <title>{`${title} | Jeffen Chen`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Container size="2" className="mx-4 md:mx-0">
+      <Container size="2" className="mx-4 md:mx-0 pb-16 md:pb-0">
         <motion.main initial="hidden" animate="enter" exit="exit" variants={variants} transition={{ type: 'linear' }}>
           <Section size={{ initial: '1', sm: '1' }} />
           {children}
         </motion.main>
       </Container>
-    </Box>
+    </>
   );
 }

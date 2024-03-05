@@ -8,11 +8,11 @@ const Home = () => {
       <Flex gap="4">
         <Box>
           <h1 className="text-4xl font-bold">Jeffen Chen</h1>
-          <p>Full-Stack Software Engineer, focus on web technologies.</p>
+          <p>Full-Stack Software Engineer</p>
         </Box>
       </Flex>
       <Box className="w-72 mt-6 mb-4 border-b-2"></Box>
-      <Box>
+      <Box className="pb-20">
         <Text>Hi there!</Text>
         <br />
         <Text as="p">
@@ -21,7 +21,7 @@ const Home = () => {
           NodeJS. I have been working on the front-end, backend, DevOps and leadership roles for 7+ years.
         </Text>
         <br />
-        <Text as="p">
+        <Text as="div">
           Technologies I worked on{' '}
           <Badge color="green" variant="soft" radius="large">
             production

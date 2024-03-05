@@ -20,7 +20,7 @@ export const resumeData = [
           <li>
             • Research and making technical strategy for the company, focus on improving efficient, reducing cost and risk, tools and SDLC standardization etc.
           </li>
-          <li>• Engaged in various projects with different teams on a quarterly basis, participating in architecture reviews, and providing guidance and technical support to teams.</li>
+          <li>• Engaged in various projects with different teams on a regular basis, participating in architecture reviews, performance tuning, providing guidance and technical support to teams.</li>
           <li>
             • Developed various internal development tools, such as a release cherry-picking CLI (Rust), an AI Code Review GitHub App, and a Git format checker GitHub App, to assist developers in saving time on repetitive tasks.
           </li>
