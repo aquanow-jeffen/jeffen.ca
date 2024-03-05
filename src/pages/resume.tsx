@@ -1,137 +1,64 @@
 import type { NextPage } from "next";
 import PageLayout from "@components/pageLayout";
 import { resumeData } from "@modules/resume/resumeData";
-import { Box } from "@mui/system";
-import { useIsTouch } from "@components/useIsTouch";
+import { Badge, Box, Button, Flex, Section, Separator, Text } from '@radix-ui/themes';
 
 const Resume: NextPage = () => {
-  const isTouch = useIsTouch();
   return (
     <PageLayout title="Resume">
-      <Box
-        component="ul"
-        className="timeline"
-        sx={{
-          position: "relative",
-          width: isTouch ? "100%" : 800,
-          margin: "0 auto",
-          marginTop: "20px",
-          padding: "1em 0",
-          listStyleType: "none",
-          "&:before": {
-            content: '""',
-            position: "absolute",
-            left: isTouch ? "3px" : "50%",
-            top: 0,
-            display: "block",
-            width: 6,
-            height: "100%",
-            marginLeft: "-3px",
-            zIndex: 5,
-            background:
-              "linear-gradient(to bottom, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%)",
-          },
-        }}
-      >
-        {resumeData.map((item, index) => (
-          <Box
-            component="li"
-            key={index}
-            sx={{
-              padding: "1em 0",
-              "&:after": {
-                content: '""',
-                display: "block",
-                height: 0,
-                clear: "both",
-                visibility: "hidden",
-              },
-            }}
-          >
+      <Section className="print:pt-0">
+        <Flex gap='3' className="-mt-12 float-right print:hidden">
+          <Button variant='outline' radius="full" highContrast onClick={() => window.print()}>Download CV</Button>
+          <Button variant='outline' radius="full" highContrast onClick={() => window.location.href = "mailto:chenjeffen@gmail.com"}>Get in touch</Button>
+        </Flex>
+        <Box className="print:block mb-4">
+          <Text as="div" size="6" weight="bold">
+            Jeffen Chen
+          </Text>
+          <Flex gap='2' className="mb-4">
+          <Text as="p" size="2" color="gray">
+            Vancouver, BC Canada
+          </Text>
+          <Separator orientation="vertical" />
+          <Text as="p" size="2" color="gray" className="">
+            chenjeffen@gmail.com
+          </Text>
+          </Flex>
+        </Box>
+        {resumeData.map((item) => (
+          <Box key={item.name} className="mb-8">
             <Box
-              sx={{
-                position: "relative",
-                width: isTouch ? "calc(100% - 33px)" : 370,
-                float: !isTouch && index % 2 === 0 ? "left" : "right",
-                textAlign: !isTouch && index % 2 === 0 ? "right" : "left",
+              style={{
+                position: 'relative',
+                display: 'inline-block',
               }}
             >
-              <Box
-                sx={{
-                  position: "relative",
-                  display: "inline-block",
-                }}
-              >
-                <Box
-                  sx={{
-                    position: "relative",
-                    display: "inline",
-                    padding: "6px 0",
-                    fontWeight: 600,
-                    fontSize: "18px",
-                    textAlign: "left",
-                    "&:before": {
-                      position: "absolute",
-                      top: "50%",
-                      right: "-40px",
-                      content: '""',
-                      display: "block",
-                      width: 12,
-                      height: 12,
-                      marginTop: "-10px",
-                      background: "var(--colors-gray2)",
-                      borderRadius: 10,
-                      border: "4px solid var(--colors-gray10)",
-                      zIndex: 10,
-                      left: !isTouch && index % 2 === 0 ? "unset" : "-40px",
-                    },
-                  }}
-                >
-                  {item.name}
-                </Box>
-                <Box
-                  sx={{
-                    lineHeight: "1em",
-                    fontSize: "12px",
-                    verticalAlign: "middle",
-                  }}
-                >
-                  <span className="time">{item.time}</span>
-                </Box>
-              </Box>
-              <div className="title">{item.title}</div>
-              <Box
-                className="tech"
-                sx={{
-                  fontSize: "13px",
-                  marginTop: "-6px",
-                  color: "var(--colors-gray12)",
-                }}
-              >
-                {item.tech?.join(", ")}
-              </Box>
-              <Box
-                sx={{
-                  margin: "1em 0.75em 0 0",
-                  fontSize: "14px",
-                  fontStyle: "italic",
-                  lineHeight: "1.7em",
-                  color: "var(--colors-gray11)",
-                  "& details": {
-                    color: "var(--colors-gray10)",
-                    "&[open]": {
-                      color: "var(--colors-gray11)",
-                    },
-                  },
-                }}
-              >
-                {item.description}
-              </Box>
+              <Flex align='baseline' gap='4' >
+              <Text as="p" size="5" weight="bold">
+                {item.name}
+              </Text>
+              <Text size="1" color="gray" className=''>
+                {item.location}
+              </Text>
+              </Flex>
+              <Text size="3" as="div">
+                {item.title}
+              </Text>
+              <Text as="div" size="1">
+                <span className="time">{item.time}</span>
+              </Text>
             </Box>
+            <Flex>
+              {item.tech?.map((tech) => (
+                <Badge key={tech} variant="outline" color="gray" highContrast className="mr-2">
+                  {tech}
+                </Badge>
+              ))}
+            </Flex>
+            <Text as="div" className="mt-4">{item.description}</Text>
           </Box>
         ))}
-      </Box>
-      <Box sx={{ mb: 15 }}></Box>
+      </Section>
     </PageLayout>
   );
 };

@@ -1,0 +1,16 @@
+@tailwind utilities;
+
+@layer utilities {
+  .bg-grid {
+    @apply rounded-md bg-fixed bg-repeat;
+    background-color: var(--colors-dock-bg);
+    backdrop-filter: blur(20px);
+    background-size: 40px 40px;
+  }
+
+  .ui-box {
+    @apply flex flex-none select-none items-center justify-center;
+    @apply rounded-md outline-none;
+    background-color: var(--colors-gray6);
+  }
+}

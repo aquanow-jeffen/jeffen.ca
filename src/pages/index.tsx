@@ -1,50 +1,53 @@
-import type { NextPage } from 'next'
-import PageLayout from "@components/pageLayout";
-import { Box } from "@mui/system";
+import PageLayout from '@components/pageLayout';
+import { Badge, Box, Flex, Link, Text } from '@radix-ui/themes';
+import NextLink from 'next/link';
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <PageLayout title="Home">
+      <Flex gap="4">
+        <Box>
+          <h1 className="text-4xl font-bold">Jeffen Chen</h1>
+          <p>Full-Stack Software Engineer, focus on web technologies.</p>
+        </Box>
+      </Flex>
+      <Box className="w-72 mt-6 mb-4 border-b-2"></Box>
       <Box>
-        <h1>Jeffen Chen</h1>
-        <p>Full-Stack Javascript / Golang / DevOps.</p>
-      </Box>
-      <Box
-        sx={{
-          width: "70px",
-          borderBottom: "2px solid #373737",
-          my: 2,
-        }}
-      ></Box>
-      <Box>
-        <p>
-          Hi there, if we haven&#39;t met, my name is Jeffen. My professional
-          life has been 100% driven by my passion for Web Development. I started
-          my career as a Front-End developer and increased my knowledge on the
-          backend with NodeJS and Golang. I have been working on the front-end
-          and backend with Angular, React, Web Component, PWA, Express and
-          Lambda. Also worked on the DevOps side with AWS, Serverless, Terraform
-          and Docker.
-        </p>
-        <p>
-          I enjoy outdoor activities (soccer, hiking, snowboard), musical
-          instruments(clarinet and piano) and video games at spare time. I am
-          also a part-time stock market trader.
-        </p>
-        <p>
-          Currently working at{" "}
-          <a
-            style={{ textDecoration: "underline" }}
-            href="https://aquanow.io"
-            target="_blank"
-            rel="noreferrer"
-          >
-            aquanow.io
-          </a>
-        </p>
+        <Text>Hi there!</Text>
+        <br />
+        <Text as="p">
+          If we haven&#39;t met, my name is Jeffen. My professional life has been 100% driven by my passion for Web
+          Development. I started my career as a Front-End developer and increased my knowledge on the backend with
+          NodeJS. I have been working on the front-end, backend, DevOps and leadership roles for 7+ years.
+        </Text>
+        <br />
+        <Text as="p">
+          Technologies I worked on{' '}
+          <Badge color="green" variant="soft" radius="large">
+            production
+          </Badge>{' '}
+          environments:
+        </Text>
+        <Text as="div">
+          <ul>
+            <li>Language: Javascript, TypeScript, Rust</li>
+            <li>Frontend: React, Next.js, Angular, Material UI</li>
+            <li>Backend: Node.js, ExpressJS, Lambda, GraphQL, SQS, EventBridge</li>
+            <li>Database: DynamoDB, Redis, MongoDB, postgreSQL</li>
+            <li>DevOps: Docker, AWS, Serverless, Github Action, Terraform</li>
+          </ul>
+        </Text>
+        <br />
+        <Text>
+          Check out{' '}
+          <NextLink href="/resume" passHref legacyBehavior>
+            <Link>my resume</Link>
+          </NextLink>{' '}
+          for details :)
+        </Text>
       </Box>
     </PageLayout>
   );
 };
 
-export default Home
+export default Home;

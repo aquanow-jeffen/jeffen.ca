@@ -1,0 +1,17 @@
+@tailwind base;
+
+@layer base {
+  html {
+    @apply h-full w-full bg-repeat antialiased bg-blend-hard-light;
+  }
+
+  body {
+    @apply h-full w-full;
+    background: linear-gradient(-45deg, #aea991, #9dae91, #29323c, #485563);
+    background-size: 260% 300%;
+  }
+
+  #__next {
+    @apply h-full w-full;
+  }
+}

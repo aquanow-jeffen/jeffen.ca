@@ -4,15 +4,8 @@ import { motion } from "framer-motion";
 import { photos } from "./data";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Box } from "@mui/system";
-import LocationIcon from "./location.svg";
-import {
-  cardContent,
-  cardContentContainer,
-  openedCardContentContainer,
-} from "./style.css";
+import { Box } from '@radix-ui/themes';
 
-const dismissDistance = 150;
 export const PhotoStory = memo(
   ({ id }: any) => {
     const { title, src } = photos.find((item) => item.id === id) as any;
@@ -21,36 +14,15 @@ export const PhotoStory = memo(
       <>
         <Overlay />
         <Box
-          sx={{
-            ...cardContentContainer,
-            ...openedCardContentContainer,
-          }}
         >
-          <motion.div
-            className="card-content"
-            layoutId={`card-container-${id}`}
-            style={cardContent}
-          >
-            <motion.div
-              className="card-image-container"
-              layoutId={`card-image-container-${id}`}
-            >
+          <motion.div className="card-content" layoutId={`card-container-${id}`}>
+            <motion.div className="card-image-container" layoutId={`card-image-container-${id}`}>
               <Image className="card-image" src={src} alt={title} />
             </motion.div>
             <motion.div
               className="content-container"
               animate
-              style={{
-                padding: "12px 17px 17px",
-                maxWidth: 700,
-                display: "flex",
-                alignItems: "center",
-                gap: "4px",
-                fontWeight: 500,
-              }}
             >
-              <LocationIcon style={{ width: "18px", height: "18px" }} />
-              <span>{title}</span>
             </motion.div>
           </motion.div>
         </Box>

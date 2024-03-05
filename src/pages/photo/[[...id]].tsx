@@ -4,7 +4,7 @@ import { PhotoList } from "@modules/photo/PhotoList";
 import { useRouter } from "next/router";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { PhotoStory } from "@modules/photo/PhotoStory";
-import { Box } from "@mui/system";
+import { Box, Flex, Text } from '@radix-ui/themes';
 
 const Photo: NextPage = () => {
   const router = useRouter();
@@ -13,20 +13,16 @@ const Photo: NextPage = () => {
 
   return (
     <PageLayout title="Photos">
-      <Box
-        sx={{
-          borderBottom: "2px solid #373737",
-          borderBottomStyle: "dotted",
-        }}
-      >
-        <h1>Photos</h1>
-        <p>Daily life, travel, hiking memories. Shot on Huawei Mate20Pro</p>
-      </Box>
+      <Flex gap="4">
+        <Box>
+          <h1 className="text-4xl font-bold">Photo</h1>
+          <Text color="gray">Life, travel and memories</Text>
+        </Box>
+      </Flex>
+      <Box className="w-72 mt-6 mb-4"></Box>
       <AnimateSharedLayout>
         <PhotoList />
-        <AnimatePresence>
-          {selectedId && <PhotoStory id={selectedId} />}
-        </AnimatePresence>
+        <AnimatePresence>{selectedId && <PhotoStory id={selectedId} />}</AnimatePresence>
       </AnimateSharedLayout>
     </PageLayout>
   );

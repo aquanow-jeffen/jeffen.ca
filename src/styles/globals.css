@@ -1,13 +1,6 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: var(--colors-gray12);
-  background-color: var(--colors-gray1);
-  line-height: 26px;
-}
+@import './base.css';
+@import './components.css';
+@import './utilities.css';
 
 :root {
   --space-1: 8px;
@@ -38,7 +31,7 @@ body {
   --colors-gray12: hsl(0 0% 93.0%);
   --colors-bg: #000;
   --colors-highContrast: white;
-  --colors-dock-bg: rgba(22, 22, 22, 0.85);
+  --colors-dock-bg: rgba(100, 100, 100, 0.2);
 }
 
 :root.light {
@@ -58,11 +51,6 @@ body {
   --colors-lowContrast: #FFFFFF;
   --colors-highContrast: black;
   --colors-dock-bg: #FFF;
-}
-
-a {
-  color: var(--colors-gray12);
-  text-decoration: none;
 }
 
 * {

@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import PageLayout from "@components/pageLayout";
-import { Box } from "@mui/system";
+import { Box } from '@radix-ui/themes';
 
 const Project: NextPage = () => {
   return (

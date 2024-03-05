@@ -29,7 +29,8 @@
     "!Split sequence"
   ],
   "files.exclude": {
-    "**/*.js": {"when": "$(basename).ts"},
-    "**/*.d.ts": {"when": "$(basename).ts"},
-  }
+    "**/*.js": { "when": "$(basename).ts" },
+    "**/*.d.ts": { "when": "$(basename).ts" }
+  },
+  "cSpell.words": ["tailwindcss"]
 }

@@ -1,24 +1,16 @@
-import { Box } from "@mui/system";
+import { Card, Text } from '@radix-ui/themes';
 
 export function WritingCard({ title, subtitle, url }): React.ReactElement {
   return (
-    <Box
-      sx={{
-        padding: "12px",
-        borderRadius: "12px",
-        margin: "-12px",
-        transition: "background-color .5s",
-        "&:hover": {
-          background: "var(--colors-gray4)",
-        },
-      }}
-    >
-      <Box component="a" target="_blank" href={url}>
-        <Box sx={{ fontSize: "22px" }}>{title}</Box>
-        <Box sx={{ fontSize: "14px", color: "var(--colors-gray10)" }}>
+    <Card size="2" className="bg-slate-700 mb-3 bg-opacity-20">
+      <a href={url} target="_blank">
+        <Text as="div" weight="bold" size="3">
+          {title}
+        </Text>
+        <Text as="div" color="gray" size="2">
           {subtitle}
-        </Box>
-      </Box>
-    </Box>
+        </Text>
+      </a>
+    </Card>
   );
 }
