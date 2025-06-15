@@ -5,7 +5,7 @@ const LinkedinIcon = ({ height = 24, width = 24, ...props }: IconProps) => (
   <svg
     width={width}
     height={height}
-    fill="var(--colors-gray10)"
+    fill="currentColor"
     viewBox="0 0 24 24"
     role="img"
     xmlns="http://www.w3.org/2000/svg"

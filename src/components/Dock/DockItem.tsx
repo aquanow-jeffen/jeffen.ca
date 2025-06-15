@@ -77,24 +77,31 @@ const DockItem = ({ id, children, route, ...props }: DockItemProps) => {
         style={{
           height: spring,
           width: spring,
+          color: isCurrentRoute ? '#5A827E' : '#64748B', // Sophisticated teal for active, muted gray for inactive
         }}
         whileHover={{
-          backgroundColor: 'hsl(209, 81.2%, 84.5%)',
-          borderColor: 'hsl(206, 81.9%, 65.3%)',
-          boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+          backgroundColor: '#5A827E',
+          borderColor: '#5A827E',
+          boxShadow: '0 8px 25px rgba(90, 130, 126, 0.25), 0 3px 10px rgba(90, 130, 126, 0.15)',
+          color: '#FFFFFF',
+          y: -3,
+          scale: 1.05,
         }}
-        whileTap={{ scale: isCurrentRoute ? 1 : 0.85 }}
+        whileTap={{ scale: isCurrentRoute ? 1 : 0.95 }}
         whileFocus={{
-          backgroundColor: 'hsl(209, 81.2%, 84.5%)',
-          borderColor: 'hsl(206, 81.9%, 65.3%)',
-          boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+          backgroundColor: '#5A827E',
+          borderColor: '#5A827E',
+          boxShadow: '0 8px 25px rgba(90, 130, 126, 0.25), 0 3px 10px rgba(90, 130, 126, 0.15)',
+          color: '#FFFFFF',
+          outline: 'none',
         }}
       >
         {children}
       </motion.button>
       {isCurrentRoute && (
         <span
-          className="absolute -bottom-2.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[hsl(0,0%,63%)]"
+          className="absolute -bottom-2.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full"
+          style={{ backgroundColor: '#5A827E' }}
           aria-hidden="true"
         />
       )}

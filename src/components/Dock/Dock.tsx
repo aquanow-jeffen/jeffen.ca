@@ -43,40 +43,46 @@ const Dock = () => {
                 </DockItem>
               ))}
               <li className="self-center" aria-hidden="true">
-                <hr className="!mx-2 block h-12 w-px border-none bg-[hsl(0,0%,78%)]" />
+                <hr
+                  className="!mx-3 block h-12 w-px border-none"
+                  style={{ backgroundColor: 'rgba(100, 116, 139, 0.3)' }}
+                />
               </li>
               <DockItem>
-                <a
-                  className="relative flex h-full w-full items-center justify-center"
+                <div
+                  className="relative flex h-full w-full items-center justify-center cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open("https://github.com/aquanow-jeffen", "_blank", "noopener,noreferrer");
+                  }}
                   aria-label="Star this project on GitHub"
-                  href="https://github.com/aquanow-jeffen"
-                  rel="external nofollow noopener noreferrer"
-                  target="_blank"
                 >
                   <GitHubIcon className="relative h-3/5 w-3/5" aria-hidden="true" />
-                </a>
+                </div>
               </DockItem>
               <DockItem>
-                <a
-                  className="relative flex h-full w-full items-center justify-center"
+                <div
+                  className="relative flex h-full w-full items-center justify-center cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open("https://www.linkedin.com/in/jeffenc/", "_blank", "noopener,noreferrer");
+                  }}
                   aria-label="View me on LinkedIn"
-                  href="https://www.linkedin.com/in/jeffenc/"
-                  rel="external nofollow noopener noreferrer"
-                  target="_blank"
                 >
                   <LinkedinIcon className="relative h-3/5 w-3/5" aria-hidden="true" />
-                </a>
+                </div>
               </DockItem>
               <DockItem>
-                <a
-                  className="relative flex h-full w-full items-center justify-center"
-                  aria-label="View me on LinkedIn"
-                  href="mailto:chenjeffen@gmail.com"
-                  rel="external nofollow noopener noreferrer"
-                  target="_blank"
+                <div
+                  className="relative flex h-full w-full items-center justify-center cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "mailto:chenjeffen@gmail.com";
+                  }}
+                  aria-label="Send me an email"
                 >
                   <EmailIcon className="relative h-3/5 w-3/5" aria-hidden="true" />
-                </a>
+                </div>
               </DockItem>
             </ul>
           </nav>

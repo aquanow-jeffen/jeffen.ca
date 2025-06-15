@@ -11,7 +11,7 @@ const ResumeIcon = ({ height = 24, width = 24, ...props }: IconProps) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     x="0px"
     y="0px"
-    fill="var(--colors-gray10)"
+    fill="currentColor"
     viewBox="0 0 43.916 43.916"
     xmlSpace="preserve"
     {...props}

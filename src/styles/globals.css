@@ -29,9 +29,16 @@
   --colors-gray10: hsl(0 0% 49.4%);
   --colors-gray11: hsl(0 0% 62.8%);
   --colors-gray12: hsl(0 0% 93.0%);
-  --colors-bg: #000;
+  --colors-bg: hsl(220, 13%, 9%);
+  --colors-text: hsl(220, 9%, 95%);
+  --colors-text-secondary: hsl(220, 9%, 65%);
+  --colors-accent: hsl(172, 18%, 43%);
+  --colors-accent-subtle: hsl(172, 18%, 43%);
+  --colors-surface: hsl(220, 13%, 12%);
+  --colors-surface-elevated: hsl(220, 13%, 15%);
+  --colors-border: hsl(220, 13%, 20%);
   --colors-highContrast: white;
-  --colors-dock-bg: rgba(100, 100, 100, 0.2);
+  --colors-dock-bg: rgba(20, 20, 23, 0.85);
 }
 
 :root.light {
@@ -47,10 +54,17 @@
   --colors-gray10: hsl(0 0% 52.3%);
   --colors-gray11: hsl(0 0% 43.5%);
   --colors-gray12: hsl(0 0% 9.0%);
-  --colors-bg: #FFF;
+  --colors-bg: hsl(220, 13%, 98%);
+  --colors-text: hsl(220, 13%, 9%);
+  --colors-text-secondary: hsl(220, 9%, 46%);
+  --colors-accent: hsl(172, 18%, 43%);
+  --colors-accent-subtle: hsl(172, 18%, 43%);
+  --colors-surface: hsl(220, 13%, 99%);
+  --colors-surface-elevated: hsl(0, 0%, 100%);
+  --colors-border: hsl(220, 13%, 91%);
   --colors-lowContrast: #FFFFFF;
   --colors-highContrast: black;
-  --colors-dock-bg: #FFF;
+  --colors-dock-bg: rgba(255, 255, 255, 0.85);
 }
 
 * {

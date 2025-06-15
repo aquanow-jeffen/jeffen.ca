@@ -13,7 +13,7 @@ const ProjectIcon = ({ height = 24, width = 24, ...props }: IconProps) => (
     y="0px"
     viewBox="0 0 511.999 511.999"
     xmlSpace="preserve"
-    fill="var(--colors-gray10)"
+    fill="currentColor"
     {...props}
   >
     <g>

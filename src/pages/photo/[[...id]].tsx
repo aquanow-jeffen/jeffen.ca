@@ -13,17 +13,24 @@ const Photo: NextPage = () => {
 
   return (
     <PageLayout title="Photos">
-      <Flex gap="4">
-        <Box>
-          <h1 className="text-4xl font-bold">Photo</h1>
-          <Text color="gray">Life, travel and memories</Text>
-        </Box>
-      </Flex>
-      <Box className="w-72 mt-6 mb-4"></Box>
-      <AnimateSharedLayout>
-        <PhotoList />
-        <AnimatePresence>{selectedId && <PhotoStory id={selectedId} />}</AnimatePresence>
-      </AnimateSharedLayout>
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-2" style={{ color: 'var(--colors-text)' }}>
+            Photos
+          </h1>
+          <Text style={{ color: 'var(--colors-text-secondary)' }}>
+            Life, travel and memories
+          </Text>
+          <div
+            className="w-24 h-1 rounded-full mt-6"
+            style={{ backgroundColor: 'var(--colors-accent)' }}
+          ></div>
+        </div>
+        <AnimateSharedLayout>
+          <PhotoList />
+          <AnimatePresence>{selectedId && <PhotoStory id={selectedId} />}</AnimatePresence>
+        </AnimateSharedLayout>
+      </div>
     </PageLayout>
   );
 };

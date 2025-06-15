@@ -2,15 +2,25 @@
 
 @layer utilities {
   .bg-grid {
-    @apply rounded-md bg-fixed bg-repeat;
+    @apply rounded-2xl bg-fixed bg-repeat;
     background-color: var(--colors-dock-bg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px) saturate(180%);
     background-size: 40px 40px;
+    border: 1px solid var(--colors-border);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .ui-box {
     @apply flex flex-none select-none items-center justify-center;
-    @apply rounded-md outline-none;
-    background-color: var(--colors-gray6);
+    @apply rounded-xl outline-none transition-all duration-300 ease-out;
+    background-color: var(--colors-surface-elevated);
+    border: 1px solid var(--colors-border);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 }
