@@ -32,8 +32,8 @@
   --colors-bg: hsl(220, 13%, 9%);
   --colors-text: hsl(220, 9%, 95%);
   --colors-text-secondary: hsl(220, 9%, 65%);
-  --colors-accent: hsl(172, 18%, 43%);
-  --colors-accent-subtle: hsl(172, 18%, 43%);
+  --colors-accent: #5A827E;
+  --colors-accent-subtle: #5A827E;
   --colors-surface: hsl(220, 13%, 12%);
   --colors-surface-elevated: hsl(220, 13%, 15%);
   --colors-border: hsl(220, 13%, 20%);
@@ -57,8 +57,8 @@
   --colors-bg: hsl(220, 13%, 98%);
   --colors-text: hsl(220, 13%, 9%);
   --colors-text-secondary: hsl(220, 9%, 46%);
-  --colors-accent: hsl(172, 18%, 43%);
-  --colors-accent-subtle: hsl(172, 18%, 43%);
+  --colors-accent: #5A827E;
+  --colors-accent-subtle: #5A827E;
   --colors-surface: hsl(220, 13%, 99%);
   --colors-surface-elevated: hsl(0, 0%, 100%);
   --colors-border: hsl(220, 13%, 91%);

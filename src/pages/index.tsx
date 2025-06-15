@@ -7,17 +7,17 @@ const Home = () => {
     <PageLayout title="Home">
       <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <div className="mb-6">
-            <h1 className="text-5xl font-bold mb-3" style={{ color: 'var(--colors-text)' }}>
+            <h1 className="text-responsive-3xl font-bold mb-3" style={{ color: 'var(--colors-text)' }}>
               Jeffen Chen
             </h1>
-            <p className="text-xl" style={{ color: 'var(--colors-text-secondary)' }}>
+            <p className="text-responsive-lg" style={{ color: 'var(--colors-text-secondary)' }}>
               Full-Stack Software Engineer
             </p>
           </div>
           <div
-            className="w-24 h-1 rounded-full mb-8"
+            className="w-16 sm:w-24 h-1 rounded-full mb-6 sm:mb-8"
             style={{ backgroundColor: 'var(--colors-accent)' }}
           ></div>
         </div>

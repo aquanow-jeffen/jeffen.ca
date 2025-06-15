@@ -18,10 +18,14 @@ const DockItem = ({ id, children, route, ...props }: DockItemProps) => {
   const controls = useAnimationControls();
 
   const dimension = useTransform(mouse.position.x, (mouseX) => {
-    return 40 + 38 * Math.cos((((mouseX - elCenterX) / (dock.width ?? 0)) * Math.PI) / 2) ** 58;
+    // Reduce animation intensity on mobile for better performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+    const baseSize = isMobile ? 36 : 40;
+    const maxSize = isMobile ? 48 : 78;
+    return baseSize + (maxSize - baseSize) * Math.cos((((mouseX - elCenterX) / (dock.width ?? 0)) * Math.PI) / 2) ** (isMobile ? 20 : 58);
   });
 
-  const spring = useSpring(40, {
+  const spring = useSpring(typeof window !== 'undefined' && window.innerWidth < 640 ? 36 : 40, {
     damping: 10,
     stiffness: 150,
     mass: 0.01,
@@ -29,10 +33,12 @@ const DockItem = ({ id, children, route, ...props }: DockItemProps) => {
 
   useEffect(() => {
     return dimension.onChange((val) => {
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+      const baseSize = isMobile ? 36 : 40;
       if (dock?.hovered) {
         spring.set(val);
       } else {
-        spring.set(40);
+        spring.set(baseSize);
       }
     });
   }, [spring, dimension, dock?.hovered]);
@@ -60,7 +66,7 @@ const DockItem = ({ id, children, route, ...props }: DockItemProps) => {
       <motion.button
         ref={ref}
         id={id}
-        className="ui-box relative h-full w-full"
+        className="ui-box relative h-full w-full touch-target"
         aria-describedby={id}
         animate={controls}
         custom={spring}
@@ -78,6 +84,8 @@ const DockItem = ({ id, children, route, ...props }: DockItemProps) => {
           height: spring,
           width: spring,
           color: isCurrentRoute ? '#5A827E' : '#64748B', // Sophisticated teal for active, muted gray for inactive
+          minHeight: '36px',
+          minWidth: '36px',
         }}
         whileHover={{
           backgroundColor: '#5A827E',
@@ -87,7 +95,12 @@ const DockItem = ({ id, children, route, ...props }: DockItemProps) => {
           y: -3,
           scale: 1.05,
         }}
-        whileTap={{ scale: isCurrentRoute ? 1 : 0.95 }}
+        whileTap={{
+          scale: isCurrentRoute ? 1 : 0.95,
+          backgroundColor: '#5A827E',
+          borderColor: '#5A827E',
+          color: '#FFFFFF',
+        }}
         whileFocus={{
           backgroundColor: '#5A827E',
           borderColor: '#5A827E',

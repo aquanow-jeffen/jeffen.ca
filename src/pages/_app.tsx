@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Jeffen Chen</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
       </Head>
       <Theme appearance={theme}>
         <AnimatePresence initial={false} mode="wait">

@@ -45,6 +45,36 @@ li {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Mobile-specific responsive improvements */
+@media (max-width: 640px) {
+  /* Improve touch targets on mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better mobile typography */
+  h1 {
+    line-height: 1.2;
+  }
+
+  h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+  }
+
+  /* Improve mobile spacing */
+  .prose li {
+    margin: 0.3rem 0;
+    line-height: 1.5;
+  }
+
+  /* Mobile-optimized cards */
+  .ui-box {
+    min-height: 36px;
+    min-width: 36px;
+  }
+}
+
 /* Print styles for professional resume - Optimized for minimal pages */
 @media print {
   @page {
@@ -52,11 +82,18 @@ li {
     size: letter;
   }
 
-  body {
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
     background: white !important;
     color: black !important;
     font-size: 11pt;
     line-height: 1.3;
+  }
+
+  #__next {
+    height: auto !important;
+    overflow: visible !important;
   }
 
   .prose {
@@ -129,5 +166,92 @@ li {
   /* Compact badge spacing */
   .print\\:gap-1 > * + * {
     margin-left: 0.1rem !important;
+  }
+
+  /* Fix responsive container for print */
+  .container-responsive {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: none !important;
+  }
+
+  /* Fix responsive spacing for print */
+  .space-responsive-md > * + * {
+    margin-top: 0.5rem !important;
+  }
+
+  /* Fix responsive typography for print */
+  .text-responsive-xs {
+    font-size: 9pt !important;
+  }
+
+  .text-responsive-sm {
+    font-size: 10pt !important;
+  }
+
+  .text-responsive-base {
+    font-size: 11pt !important;
+  }
+
+  .text-responsive-lg {
+    font-size: 12pt !important;
+  }
+
+  .text-responsive-xl {
+    font-size: 14pt !important;
+  }
+
+  .text-responsive-2xl {
+    font-size: 16pt !important;
+  }
+
+  .text-responsive-3xl {
+    font-size: 18pt !important;
+  }
+
+  /* Ensure proper page breaks */
+  .space-responsive-md > * {
+    page-break-inside: avoid;
+  }
+
+  /* Remove any fixed heights or overflow issues */
+  * {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Ensure main content flows properly */
+  main {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Fix any container or layout issues */
+  .rt-Container {
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .rt-Section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Ensure motion components don't interfere */
+  [data-framer-component] {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Force proper page flow */
+  div {
+    page-break-inside: auto;
+  }
+
+  /* Specific fixes for resume layout */
+  .max-w-4xl {
+    max-width: none !important;
   }
 }

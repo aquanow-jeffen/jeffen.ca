@@ -26,15 +26,15 @@ const Dock = () => {
 
   return (
     <MouseProvider>
-      <footer className="fixed inset-x-0 bottom-6 z-40 flex w-full justify-center print:hidden">
+      <footer className="fixed inset-x-0 bottom-3 sm:bottom-6 z-40 flex w-full justify-center print:hidden px-4 sm:px-0">
         <DockContext.Provider value={{ hovered, width }}>
           <nav
             ref={ref}
-            className="bg-grid flex justify-center rounded-md p-4"
+            className="bg-grid flex justify-center rounded-md p-3 sm:p-4 w-full sm:w-auto max-w-sm sm:max-w-none"
             onMouseOver={() => setHovered(true)}
             onMouseOut={() => setHovered(false)}
           >
-            <ul className="flex h-10 items-end justify-center space-x-3">
+            <ul className="flex h-10 sm:h-10 items-end justify-center space-x-2 sm:space-x-3 w-full sm:w-auto">
               {menuData.map((e, idx) => (
                 <DockItem key={`dock-item-${idx}`} route={e.route}>
                   <div onClick={() => router.push(e.route)}>

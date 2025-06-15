@@ -18,7 +18,6 @@ export function WritingCard({ title, subtitle, url }): React.ReactElement {
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
             <Text
-              as="h3"
               weight="bold"
               size="4"
               className="group-hover:text-teal-600 transition-colors duration-200"
