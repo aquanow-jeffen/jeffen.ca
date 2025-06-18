@@ -6,31 +6,26 @@ export const resumeData = [
     location: 'Vancouver, Canada',
     time: 'Jun 2021 - Present',
     title: 'Staff Software Engineer',
-    tech: ['Typescript', 'Node', 'NextJS', 'AWS', 'Kafka', 'Rust', 'Tauri', 'Terraform', 'Leadership'],
+    tech: ['Typescript', 'Node', 'AWS', 'Kafka','Java', 'Rust', 'Leadership'],
     description: (
       <Text as="div" size="3">
-        <div>Aquanow is a crypto trading company and liquidity provider. Collaborated closely with the CTO and management team to enhance the Software Development Life Cycle (SDLC) and development processes, focusing on the technical development and strategic direction of the company. Provided technical leadership to ensure alignment across teams:</div>
+        <div>Aquanow is a crypto trading company and liquidity provider:</div>
         <ul>
           <li>
-            Led the modernization of front-end and back-end applications, transitioning from Vanilla JavaScript to TypeScript. Implemented development toolchains including linting, formatting, testing, bundling, continuous integration/continuous deployment (CI/CD), and monitoring.
+            <strong>Spearheaded Technical Modernization & Developer Velocity:</strong> Championed the migration of legacy front-end and back-end applications from JavaScript to <strong>TypeScript</strong>. Drove developer efficiency by engineering a complete SDLC toolchain, including linting, CI/CD pipelines, monitoring, NX Monorepo and an AI-powered code review github app and a feature-rich <strong>Tauri (Rust + Svelte)</strong> desktop application that automated the complex cherry-picking release process with a unified operational view.
           </li>
           <li>
-            Integrated Kafka as a messaging layer, including benchmarking, exactly-once delivery, Kafka Connect for data sink, Kafka Streams for market data aggregation, workload migration, and shifting from Confluent Cloud to self-hosted platform.
+            <strong>Engineered Mission-Critical Messaging & Data Platforms:</strong> Architected and implemented a high-throughput <strong>Kafka</strong> messaging layer, ensuring exactly-once delivery for critical financial transactions. Led the migration from Confluent Cloud to a self-hosted platform, reducing operational costs. Optimized market data aggregation using Kafka Streams and scaled order book synchronization across AWS regions with Redis.
           </li>
           <li>
-            Designed and developed a workflow orchestration engine for customer transaction workflows across banking, trading, settlement, and client systems in a monorepo setup.
+            <strong>Architected & Delivered Core Transaction Systems:</strong> Designed and built a resilient workflow orchestration engine in <strong>Java</strong> and <strong>Quarkus</strong> to manage complex customer transactions across banking, trading, and settlement systems. Implemented a hybrid event sourcing framework using <strong>DynamoDB</strong> and AWS EventBridge to ensure data integrity and scalability.
           </li>
           <li>
-            Developed a feature-rich Tauri app (Rust + Svelte) to provide comprehensive view across multiple platforms and automate cherry-picking based release process.
+            <strong>Led Product Development & Process Automation:</strong> Served as the Technical Product Owner for a key payment product, leading a five-person team through the full lifecycle. Managed the product backlog, ran Scrum ceremonies, writing documentations and delivered a high availability and high resiliency payment system.
           </li>
           <li>
-            Served as the technical product owner for a payment product, leading a five-person development team. Responsibilities included developing the product, providing customer technical support, managing the Jira backlog, and conducting Scrum ceremonies.
+            <strong>Drove Technical Strategy & Mentorship:</strong> Acted as a key technical advisor, leading research on emerging technologies to reduce cost and risk (Sonarcloud, pentest). Regularly conducted architecture reviews, provided performance tuning expertise, and mentored junior and intermediate developers, playing a vital role in talent growth.
           </li>
-          <li>
-            Research and technical strategy development for the company, focusing on improving efficiency, reducing cost and risk, tools and SDLC standardization.
-          </li>
-          <li>Engaged in various projects with different teams on a regular basis, participating in architecture reviews, performance tuning, providing guidance and technical support to teams.</li>
-          <li>Interviewed, mentored, and provided guidance to junior and intermediate developers.</li>
         </ul>
       </Text>
     ),
