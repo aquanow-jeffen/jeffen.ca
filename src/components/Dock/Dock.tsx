@@ -77,7 +77,7 @@ const Dock = () => {
                   className="relative flex h-full w-full items-center justify-center cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = "mailto:chenjeffen@gmail.com";
+                    window.location.href = "mailto:jeffen@jeffen.me";
                   }}
                   aria-label="Send me an email"
                 >

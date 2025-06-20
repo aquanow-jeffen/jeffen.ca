@@ -37,7 +37,7 @@ const Resume: NextPage = () => {
                 <Button
                   variant='solid'
                   radius="full"
-                  onClick={() => window.location.href = "mailto:chenjeffen@gmail.com"}
+                  onClick={() => window.location.href = "mailto:jeffen@jeffen.me"}
                   style={{
                     backgroundColor: 'var(--colors-accent)',
                     color: 'white',
@@ -63,7 +63,7 @@ const Resume: NextPage = () => {
               </Text>
               <Separator orientation="vertical" className="print:hidden" />
               <Text as="p" size="2" style={{ color: 'var(--colors-text-secondary)' }} className="print:text-gray-600 print:text-sm">
-                chenjeffen@gmail.com
+                jeffen@jeffen.me
               </Text>
             </Flex>
           </Box>
