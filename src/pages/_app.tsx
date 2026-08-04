@@ -15,16 +15,14 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (
+    const prefersDark =
       localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-      setTheme('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      setTheme('light');
-    }
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    document.documentElement.classList.toggle('dark', prefersDark);
+    const frame = window.requestAnimationFrame(() => setTheme(prefersDark ? 'dark' : 'light'));
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
   return (
     <>

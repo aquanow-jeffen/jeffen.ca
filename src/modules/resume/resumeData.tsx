@@ -4,7 +4,7 @@ export const resumeData = [
     location: 'Vancouver, Canada',
     time: 'Jun 2021 - Present',
     title: 'Staff Software Engineer',
-    tech: ['Kafka', 'TigerBeetle', 'Node.js', 'Java', 'AWS', 'ECS', 'OpenTelemetry', 'Leadership'],
+    tech: ['Kafka', 'Node.js', 'Java', 'AWS', 'ECS', 'OpenTelemetry', 'Leadership'],
     description: (
       <>
         <div>

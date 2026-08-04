@@ -16,7 +16,7 @@ const Home = () => {
       <section className="intro-composition">
         <div className="intro-index">余白 / Portfolio / 2026</div>
         <div className="intro-main">
-          <p className="intro-role">Staff software engineer · Vancouver</p>
+          <p className="intro-role">Staff software engineer · Hong Kong ↔ Vancouver</p>
         <h1 className="hero-title">
           Jeffen <span>Chen</span>
         </h1>

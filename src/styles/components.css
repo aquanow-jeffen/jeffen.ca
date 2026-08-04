@@ -729,7 +729,7 @@
 
   .print-resume-header {
     display: grid !important;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 165pt minmax(0, 1fr);
     align-items: end;
     gap: 4pt 18pt;
     padding-bottom: 8pt;
@@ -754,6 +754,10 @@
     color: #57534e;
     font-size: 8pt;
     text-align: right;
+  }
+
+  .print-contact span {
+    display: block;
   }
 
   .print-skills {

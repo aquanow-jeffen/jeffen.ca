@@ -13,7 +13,7 @@ const variants = {
   exit: { opacity: 0 },
 };
 
-export default function PageLayout({ children, title }: Props): JSX.Element {
+export default function PageLayout({ children, title }: Props) {
   return (
     <>
       <Head>

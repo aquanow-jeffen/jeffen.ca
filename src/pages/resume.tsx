@@ -12,11 +12,15 @@ const Resume: NextPage = () => {
           <h1 className="page-title">Experience</h1>
           <p className="page-subtitle">Building products, platforms, and stronger engineering teams.</p>
         </div>
-        <Flex gap='3' wrap="wrap">
-          <Button className="secondary-button" variant='outline' highContrast onClick={() => window.print()}>
+        <Flex gap="3" wrap="wrap">
+          <Button className="secondary-button" variant="outline" highContrast onClick={() => window.print()}>
             Download CV
           </Button>
-          <Button className="primary-button" variant='solid' onClick={() => window.location.href = "mailto:chenjeffen@gmail.com"}>
+          <Button
+            className="primary-button"
+            variant="solid"
+            onClick={() => (window.location.href = 'mailto:chenjeffen@gmail.com')}
+          >
             Get in touch
           </Button>
         </Flex>
@@ -27,19 +31,18 @@ const Resume: NextPage = () => {
           <p>Senior / Staff Software Engineer</p>
         </div>
         <div className="print-contact">
-          Vancouver, BC, Canada · chenjeffen@gmail.com · linkedin.com/in/jeffenc
+          <span>Hong Kong &amp; Vancouver, BC · Authorized to work in Canada · Canadian-hours overlap</span>
+          <span>chenjeffen@gmail.com · linkedin.com/in/jeffenc</span>
         </div>
-        <div className="print-skills">
-          Kafka · TigerBeetle · TypeScript · Java · Rust · AWS · ECS · Terraform · OpenTelemetry
-        </div>
+        <div className="print-skills">TypeScript · Java · Rust · AWS · ECS · Kafka · Terraform · OpenTelemetry</div>
       </header>
       <section className="resume-profile" aria-label="Professional profile">
         <div className="section-kicker">Profile</div>
         <p>
           Senior and Staff-level software engineer building shared platforms across trading, treasury, market
-          operations, and financial infrastructure. I turn emerging technologies into production capabilities,
-          align architecture with business priorities, and help teams adopt reliable engineering practices. Beyond
-          roadmap delivery, I continuously research, prototype, demonstrate, and productionize platform improvements.
+          operations, and financial infrastructure. I turn emerging technologies into production capabilities, align
+          architecture with business priorities, and help teams adopt reliable engineering practices. Beyond roadmap
+          delivery, I continuously research, prototype, demonstrate, and productionize platform improvements.
         </p>
         <div className="resume-strengths" aria-label="Core strengths">
           <span>Distributed systems</span>
@@ -63,11 +66,11 @@ const Resume: NextPage = () => {
                 </div>
               </div>
               <Flex className="resume-tech overflow-x-auto" wrap="wrap" gap="2">
-              {item.tech?.map((tech) => (
-                <Badge key={tech} variant="soft" color="tomato" radius="full">
-                  {tech}
-                </Badge>
-              ))}
+                {item.tech?.map((tech) => (
+                  <Badge key={tech} variant="soft" color="tomato" radius="full">
+                    {tech}
+                  </Badge>
+                ))}
               </Flex>
               {item.description && <div className="resume-description">{item.description}</div>}
             </article>

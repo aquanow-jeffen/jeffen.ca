@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import PageLayout from "@components/pageLayout";
 import { PhotoList } from "@modules/photo/PhotoList";
 import { useRouter } from "next/router";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, LayoutGroup } from "framer-motion";
 import { PhotoStory } from "@modules/photo/PhotoStory";
 
 const Photo: NextPage = () => {
@@ -19,10 +19,10 @@ const Photo: NextPage = () => {
           <p className="page-subtitle">Light, distance, and small moments collected along the way.</p>
         </div>
       </header>
-      <AnimateSharedLayout>
+      <LayoutGroup>
         <PhotoList />
         <AnimatePresence>{selectedId && <PhotoStory id={selectedId} />}</AnimatePresence>
-      </AnimateSharedLayout>
+      </LayoutGroup>
     </PageLayout>
   );
 };
