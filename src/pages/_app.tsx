@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
         <title>Jeffen Chen</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
       </Head>
-      <Theme appearance={theme}>
+      <Theme appearance={theme} accentColor="tomato" grayColor="sand" radius="medium">
         <AnimatePresence initial={false} mode="wait">
           <Component {...pageProps} canonical={url} key={url} />
         </AnimatePresence>

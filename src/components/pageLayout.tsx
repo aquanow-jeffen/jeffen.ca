@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Container, Section } from '@radix-ui/themes';
 
 type Props = {
   children: ReactNode;
@@ -19,14 +18,19 @@ export default function PageLayout({ children, title }: Props): JSX.Element {
     <>
       <Head>
         <title>{`${title} | Jeffen Chen`}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Container size="2" className="container-responsive pb-20 sm:pb-16 md:pb-12 print:pb-0">
-        <motion.main initial="hidden" animate="enter" exit="exit" variants={variants} transition={{ type: 'linear' }}>
-          <Section size={{ initial: '1', sm: '2' }} className="py-4 sm:py-6 md:py-8 print:py-0" />
+      <div className="page-shell">
+        <motion.main
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          variants={variants}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
           {children}
         </motion.main>
-      </Container>
+      </div>
     </>
   );
 }

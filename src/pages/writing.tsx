@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import PageLayout from "@components/pageLayout";
-import { Box, Flex, Text } from '@radix-ui/themes';
 import { WritingCard } from '@modules/writing/writingCard';
 
 const writingData = [
@@ -24,24 +23,17 @@ const writingData = [
 const Writing: NextPage = () => {
   return (
     <PageLayout title="Writing">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2" style={{ color: 'var(--colors-text)' }}>
-            Writing
-          </h1>
-          <Text style={{ color: 'var(--colors-text-secondary)' }}>
-            Random thoughts and findings
-          </Text>
-          <div
-            className="w-24 h-1 rounded-full mt-6"
-            style={{ backgroundColor: 'var(--colors-accent)' }}
-          ></div>
+      <header className="page-header">
+        <div>
+          <div className="page-kicker">記録 / Field notes / 01</div>
+          <h1 className="page-title">Writing</h1>
+          <p className="page-subtitle">Architecture patterns, engineering practices, and lessons from production.</p>
         </div>
-        <div className="space-y-6">
-          {writingData.map(({ title, subtitle, url }) => (
-            <WritingCard key={url} title={title} subtitle={subtitle} url={url} />
-          ))}
-        </div>
+      </header>
+      <div className="writing-list">
+        {writingData.map(({ title, subtitle, url }, index) => (
+          <WritingCard key={url} index={index + 1} title={title} subtitle={subtitle} url={url} />
+        ))}
       </div>
     </PageLayout>
   );

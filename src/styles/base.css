@@ -3,60 +3,49 @@
 @layer base {
   html {
     @apply h-full w-full antialiased;
-    /* Improve text rendering on mobile */
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--site-bg);
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
-    @apply h-full w-full;
-    background: var(--colors-bg);
-    color: var(--colors-text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    /* Improve mobile scrolling */
-    -webkit-overflow-scrolling: touch;
-    /* Prevent horizontal scroll on mobile */
-    overflow-x: hidden;
+    @apply min-h-full w-full;
+    color: var(--site-text);
+    background-color: var(--site-bg);
+    background-image:
+      linear-gradient(var(--site-bg), color-mix(in srgb, var(--site-bg) 91%, transparent)),
+      url('/textures/handmade-paper.jpg');
+    background-position: center top;
+    background-size: auto, min(1250px, 100vw) auto;
+    background-attachment: fixed;
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.65;
   }
 
   #__next {
-    @apply h-full w-full;
-    /* Prevent horizontal scroll */
-    overflow-x: hidden;
+    @apply min-h-full w-full;
   }
 
-  /* Professional background pattern */
   body::before {
-    content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-      radial-gradient(circle at 25% 25%, var(--colors-accent-subtle) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, var(--colors-accent-subtle) 0%, transparent 50%);
-    opacity: 0.03;
+    inset: 0;
     z-index: -1;
+    content: '';
     pointer-events: none;
+    opacity: 0.35;
+    background: linear-gradient(90deg, transparent 49.9%, var(--site-grid) 50%, transparent 50.1%);
+    background-size: min(92vw, 980px) 100%;
   }
 
-  /* Print-specific fixes */
-  @media print {
-    html, body {
-      height: auto !important;
-      overflow: visible !important;
-      -webkit-overflow-scrolling: auto !important;
-    }
+  ::selection {
+    color: #fff;
+    background: var(--site-accent);
+  }
 
-    #__next {
-      height: auto !important;
-      overflow: visible !important;
-    }
-
-    body::before {
-      display: none !important;
-    }
+  a {
+    color: inherit;
   }
 }
