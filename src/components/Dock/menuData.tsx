@@ -1,6 +1,5 @@
 import HomeIcon from './icons/home';
 import WritingIcon from './icons/writing';
-import ProjectIcon from './icons/project';
 import PhotoIcon from './icons/photo';
 import ResumeIcon from './icons/resume';
 import { IconProps } from 'types';

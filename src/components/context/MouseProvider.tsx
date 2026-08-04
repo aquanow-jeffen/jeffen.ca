@@ -1,16 +1,20 @@
 import { MouseType } from 'types';
 import { useMotionValue, useVelocity } from 'framer-motion';
-import { ReactNode, createContext, useContext, useMemo } from 'react';
-import { useEvent } from 'react-use';
+import { ReactNode, createContext, useContext, useEffect, useMemo } from 'react';
 
 const useMousePosition = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  useEvent('mousemove', (e) => {
-    x.set(e.clientX);
-    y.set(e.clientY);
-  });
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      x.set(event.clientX);
+      y.set(event.clientY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [x, y]);
 
   return useMemo(() => ({ x, y }), [x, y]);
 };

@@ -1,33 +1,25 @@
 import type { NextPage } from "next";
 import PageLayout from "@components/pageLayout";
-import { Box } from '@radix-ui/themes';
 
 const Project: NextPage = () => {
   return (
     <PageLayout title="Projects">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2" style={{ color: 'var(--colors-text)' }}>
-            Projects
-          </h1>
-          <p style={{ color: 'var(--colors-text-secondary)' }}>
-            Showcasing my work and contributions
-          </p>
-          <div
-            className="w-24 h-1 rounded-full mt-6"
-            style={{ backgroundColor: 'var(--colors-accent)' }}
-          ></div>
+      <header className="page-header">
+        <div>
+          <div className="page-kicker">仕事 / Selected work / 04</div>
+          <h1 className="page-title">Projects</h1>
+          <p className="page-subtitle">A closer look at systems, tools, and product work.</p>
         </div>
-        <div className="text-center py-16">
-          <div className="text-6xl mb-4">🚧</div>
-          <p className="text-xl" style={{ color: 'var(--colors-text-secondary)' }}>
-            Under construction
-          </p>
-          <p style={{ color: 'var(--colors-text-secondary)' }}>
-            Check back soon for updates!
+      </header>
+      <section className="project-placeholder">
+        <div>
+          <div className="project-glyph" aria-hidden="true">{'{ }'}</div>
+          <h2 className="text-xl font-semibold">Case studies are being assembled.</h2>
+          <p className="page-subtitle mx-auto mt-3">
+            I’m documenting the architecture, constraints, and outcomes—not just the polished screenshots.
           </p>
         </div>
-      </div>
+      </section>
     </PageLayout>
   );
 };

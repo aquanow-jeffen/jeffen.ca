@@ -15,16 +15,14 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (
+    const prefersDark =
       localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-      setTheme('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      setTheme('light');
-    }
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    document.documentElement.classList.toggle('dark', prefersDark);
+    const frame = window.requestAnimationFrame(() => setTheme(prefersDark ? 'dark' : 'light'));
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
   return (
     <>
@@ -32,7 +30,7 @@ function MyApp({ Component, pageProps }) {
         <title>Jeffen Chen</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
       </Head>
-      <Theme appearance={theme}>
+      <Theme appearance={theme} accentColor="tomato" grayColor="sand" radius="medium">
         <AnimatePresence initial={false} mode="wait">
           <Component {...pageProps} canonical={url} key={url} />
         </AnimatePresence>

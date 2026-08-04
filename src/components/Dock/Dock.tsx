@@ -5,7 +5,6 @@ import LinkedinIcon from './icons/linkedin';
 import { MouseProvider } from '../context/MouseProvider';
 import DockItem from './DockItem';
 import menuData from './menuData';
-import { useRouter } from 'next/navigation';
 import EmailIcon from './icons/email';
 
 const DockContext = createContext<DockContextType | null>(null);
@@ -16,7 +15,6 @@ export const useDock = () => {
 
 const Dock = () => {
   const ref = useRef<HTMLElement>(null);
-  const router = useRouter();
   const [hovered, setHovered] = useState(false);
   const [width, setWidth] = useState<number | undefined>();
 
@@ -26,63 +24,55 @@ const Dock = () => {
 
   return (
     <MouseProvider>
-      <footer className="fixed inset-x-0 bottom-3 sm:bottom-6 z-40 flex w-full justify-center print:hidden px-4 sm:px-0">
+      <footer className="fixed inset-x-0 bottom-6 z-40 flex w-full justify-center print:hidden">
         <DockContext.Provider value={{ hovered, width }}>
           <nav
             ref={ref}
-            className="bg-grid flex justify-center rounded-md p-3 sm:p-4 w-full sm:w-auto max-w-sm sm:max-w-none"
-            onMouseOver={() => setHovered(true)}
-            onMouseOut={() => setHovered(false)}
+            className="bg-grid dock-shell flex justify-center"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
           >
-            <ul className="flex h-10 sm:h-10 items-end justify-center space-x-2 sm:space-x-3 w-full sm:w-auto">
+            <ul className="flex h-10 items-end justify-center space-x-2">
               {menuData.map((e, idx) => (
-                <DockItem key={`dock-item-${idx}`} route={e.route}>
-                  <div onClick={() => router.push(e.route)}>
-                    <e.Icon />
-                  </div>
+                <DockItem key={`dock-item-${idx}`} route={e.route} label={e.name}>
+                  <e.Icon className="dock-icon" aria-hidden="true" />
                 </DockItem>
               ))}
               <li className="self-center" aria-hidden="true">
-                <hr
-                  className="!mx-3 block h-12 w-px border-none"
-                  style={{ backgroundColor: 'rgba(100, 116, 139, 0.3)' }}
-                />
+                <hr className="!mx-1 block h-8 w-px border-none bg-[color:var(--site-border-strong)]" />
               </li>
               <DockItem>
-                <div
-                  className="relative flex h-full w-full items-center justify-center cursor-pointer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open("https://github.com/aquanow-jeffen", "_blank", "noopener,noreferrer");
-                  }}
+                <a
+                  className="dock-action"
                   aria-label="Star this project on GitHub"
+                  href="https://github.com/aquanow-jeffen"
+                  rel="external nofollow noopener noreferrer"
+                  target="_blank"
                 >
-                  <GitHubIcon className="relative h-3/5 w-3/5" aria-hidden="true" />
-                </div>
+                  <GitHubIcon className="dock-icon" aria-hidden="true" />
+                </a>
               </DockItem>
               <DockItem>
-                <div
-                  className="relative flex h-full w-full items-center justify-center cursor-pointer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open("https://www.linkedin.com/in/jeffenc/", "_blank", "noopener,noreferrer");
-                  }}
+                <a
+                  className="dock-action"
                   aria-label="View me on LinkedIn"
+                  href="https://www.linkedin.com/in/jeffenc/"
+                  rel="external nofollow noopener noreferrer"
+                  target="_blank"
                 >
-                  <LinkedinIcon className="relative h-3/5 w-3/5" aria-hidden="true" />
-                </div>
+                  <LinkedinIcon className="dock-icon" aria-hidden="true" />
+                </a>
               </DockItem>
               <DockItem>
-                <div
-                  className="relative flex h-full w-full items-center justify-center cursor-pointer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = "mailto:jeffen@jeffen.me";
-                  }}
+                <a
+                  className="dock-action"
                   aria-label="Send me an email"
+                  href="mailto:chenjeffen@gmail.com"
+                  rel="external nofollow noopener noreferrer"
+                  target="_blank"
                 >
-                  <EmailIcon className="relative h-3/5 w-3/5" aria-hidden="true" />
-                </div>
+                  <EmailIcon className="dock-icon" aria-hidden="true" />
+                </a>
               </DockItem>
             </ul>
           </nav>

@@ -14,6 +14,24 @@
   --space-9: 72px;
   --space-10: 80px;
   --space-11: 88px;
+  --site-bg: #eee9df;
+  --site-surface: rgba(250, 247, 239, 0.88);
+  --site-surface-solid: #f8f4eb;
+  --site-surface-raised: rgba(255, 251, 243, 0.94);
+  --site-text: #191713;
+  --site-muted: #625d54;
+  --site-subtle: #8b8377;
+  --site-border: rgba(43, 37, 29, 0.15);
+  --site-border-strong: rgba(43, 37, 29, 0.28);
+  --site-accent: #c94832;
+  --site-accent-strong: #a93423;
+  --site-accent-soft: rgba(201, 72, 50, 0.11);
+  --site-cyan: #2d4968;
+  --site-glow-primary: rgba(201, 72, 50, 0.08);
+  --site-glow-secondary: rgba(45, 73, 104, 0.09);
+  --site-grid: rgba(55, 47, 37, 0.04);
+  --site-shadow: 12px 14px 0 rgba(43, 37, 29, 0.055);
+  --site-shadow-hover: 15px 18px 0 rgba(201, 72, 50, 0.1);
 }
 
 :root.dark {
@@ -29,16 +47,27 @@
   --colors-gray10: hsl(0 0% 49.4%);
   --colors-gray11: hsl(0 0% 62.8%);
   --colors-gray12: hsl(0 0% 93.0%);
-  --colors-bg: hsl(220, 13%, 9%);
-  --colors-text: hsl(220, 9%, 95%);
-  --colors-text-secondary: hsl(220, 9%, 65%);
-  --colors-accent: #5A827E;
-  --colors-accent-subtle: #5A827E;
-  --colors-surface: hsl(220, 13%, 12%);
-  --colors-surface-elevated: hsl(220, 13%, 15%);
-  --colors-border: hsl(220, 13%, 20%);
-  --colors-highContrast: white;
-  --colors-dock-bg: rgba(20, 20, 23, 0.85);
+  --colors-bg: #13120f;
+  --colors-highContrast: #f3ede1;
+  --colors-dock-bg: rgba(24, 22, 18, 0.88);
+  --site-bg: #13120f;
+  --site-surface: rgba(28, 26, 22, 0.9);
+  --site-surface-solid: #1d1b17;
+  --site-surface-raised: rgba(36, 33, 28, 0.96);
+  --site-text: #f3ede1;
+  --site-muted: #b6ada0;
+  --site-subtle: #7e766b;
+  --site-border: rgba(226, 214, 195, 0.14);
+  --site-border-strong: rgba(226, 214, 195, 0.28);
+  --site-accent: #ef6b51;
+  --site-accent-strong: #ff8a70;
+  --site-accent-soft: rgba(239, 107, 81, 0.14);
+  --site-cyan: #7f9bb5;
+  --site-glow-primary: rgba(239, 107, 81, 0.1);
+  --site-glow-secondary: rgba(72, 100, 130, 0.12);
+  --site-grid: rgba(226, 214, 195, 0.035);
+  --site-shadow: 12px 14px 0 rgba(0, 0, 0, 0.24);
+  --site-shadow-hover: 15px 18px 0 rgba(239, 107, 81, 0.13);
 }
 
 :root.light {
@@ -54,17 +83,10 @@
   --colors-gray10: hsl(0 0% 52.3%);
   --colors-gray11: hsl(0 0% 43.5%);
   --colors-gray12: hsl(0 0% 9.0%);
-  --colors-bg: hsl(220, 13%, 98%);
-  --colors-text: hsl(220, 13%, 9%);
-  --colors-text-secondary: hsl(220, 9%, 46%);
-  --colors-accent: #5A827E;
-  --colors-accent-subtle: #5A827E;
-  --colors-surface: hsl(220, 13%, 99%);
-  --colors-surface-elevated: hsl(0, 0%, 100%);
-  --colors-border: hsl(220, 13%, 91%);
-  --colors-lowContrast: #FFFFFF;
-  --colors-highContrast: black;
-  --colors-dock-bg: rgba(255, 255, 255, 0.85);
+  --colors-bg: #eee9df;
+  --colors-lowContrast: #fffaf1;
+  --colors-highContrast: #191713;
+  --colors-dock-bg: rgba(250, 247, 239, 0.9);
 }
 
 * {

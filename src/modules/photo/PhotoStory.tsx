@@ -1,31 +1,30 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { memo } from "react";
 import { motion } from "framer-motion";
 import { photos } from "./data";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Box } from '@radix-ui/themes';
 
 export const PhotoStory = memo(
   ({ id }: any) => {
+    const router = useRouter();
     const { title, src } = photos.find((item) => item.id === id) as any;
 
     return (
       <>
         <Overlay />
-        <Box
-        >
-          <motion.div className="card-content" layoutId={`card-container-${id}`}>
-            <motion.div className="card-image-container" layoutId={`card-image-container-${id}`}>
-              <Image className="card-image" src={src} alt={title} />
-            </motion.div>
-            <motion.div
-              className="content-container"
-              animate
-            >
-            </motion.div>
+        <motion.div className="photo-story" layoutId={`card-container-${id}`}>
+          <button
+            type="button"
+            className="photo-story-close"
+            aria-label="Close photo"
+            onClick={() => router.push("/photo", undefined, { scroll: false })}
+          >
+            ×
+          </button>
+          <motion.div className="absolute inset-0" layoutId={`card-image-container-${id}`}>
+            <Image className="object-contain" src={src} alt={title} fill sizes="90vw" priority />
           </motion.div>
-        </Box>
+        </motion.div>
       </>
     );
   },
@@ -41,19 +40,7 @@ const Overlay = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.15 } }}
       transition={{ duration: 0.2, delay: 0.15 }}
-      style={{
-        pointerEvents: "auto",
-        zIndex: 1,
-        position: "fixed",
-        background: "rgba(0, 0, 0, 0.5)",
-        willChange: "opacity",
-        top: 0,
-        bottom: 0,
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: "100%",
-      }}
-      className="overlay"
-    ></motion.div>
+      className="photo-overlay"
+    />
   );
 };

@@ -22,6 +22,7 @@ export type DockItemProps = {
   id?: string
   children?: ReactNode
   route?: string
+  label?: string
 }
 
 export type IconProps = {
